@@ -1,45 +1,67 @@
+/* reset / base */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* ---------- Fundo (DIV) ---------- */
+.imagem-fundo {
+    position: fixed;   /* fica fixo no ecrã */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("imagens/imagem inicial.webp");
+    background-size: cover;      /* cobre a área, mantendo proporção */
+    background-position: center; /* centra a imagem */
+    background-repeat: no-repeat;
+    z-index: 0;                  /* atrás dos elementos da UI */
+}
+
+/* ---------- Header e Menu por cima ---------- */
+header {
+    position: relative;
+    z-index: 20;                 /* acima do fundo */
+}
+
+#menu-principal {
+    position: relative;          /* ou absolute/top:0 se quiseres fixo */
+    z-index: 30;                 /* garantir sobreposição */
+    width: 100%;
+    background: transparent;     /* sem faixa branca */
+    border-collapse: collapse;   /* tira gaps na tabela */
+}
+
+/* remover fundo por defeito dos TDs mas SEM atingir .imagem-fundo */
+#menu-principal td {
+    background: transparent;
+    padding: 8px 12px;
+}
+
+/* estilo do h3 */
 h3 {
     text-align: center;
     background-color: orangered;
-    margin: 0;        
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    font-family: 'Lucida Sans', 'Lucida Grande', Geneva, Verdana, sans-serif;
     font-size: small;
 }
 
-body {
-    margin: 0;
-}
+/* se quiseres que o menu fique fixo no topo do ecrã (sobre a imagem),
+   descomenta isto e ajusta o padding-top do body/conteúdo se necessário:
 
-.tabela1 {
-    text-align: center;
-    vertical-align: auto;
+#menu-principal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 40;
 }
+*/
 
-.divt1 {
-    text-align: right;
-    
-}
-
-/* Remove margens do body */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: white;
-}
-
-/* Div com a imagem de fundo que ocupa metade da altura da viewport */
-.fundo-metade {
-  width: 100vw;         /* largura total da viewport */
-  height: 50vh;         /* metade da altura da viewport */
-  background-image: url('imagens/imagem_inicial.webp');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* Conteúdo que fica abaixo da imagem */
-.conteudo {
-  padding: 20px;
-  background-color: #222;
-  min-height: 100vh;    /* altura suficiente para scroll */
+/* pequenas correções de imagem dentro da tabela */
+#menu-principal img {
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
