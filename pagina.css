@@ -19,3 +19,27 @@ body {
     text-align: right;
     
 }
+
+/* Remove margens do body */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+/* Div com a imagem de fundo que ocupa metade da altura da viewport */
+.fundo-metade {
+  width: 100vw;         /* largura total da viewport */
+  height: 50vh;         /* metade da altura da viewport */
+  background-image: url('imagens/imagem_inicial.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Conteúdo que fica abaixo da imagem */
+.conteudo {
+  padding: 20px;
+  background-color: #222;
+  min-height: 100vh;    /* altura suficiente para scroll */
+}
