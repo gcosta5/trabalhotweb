@@ -1,68 +1,63 @@
-/* reset / base */
+/* Remover margens padrão */
 html, body {
-    height: 100%;
     margin: 0;
     padding: 0;
 }
 
-/* ---------- Fundo (DIV) ---------- */
-.imagem-fundo {
-    position: fixed;   /* fica fixo no ecrã */
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-image: url("imagens/imagem inicial.webp");
-    background-size: cover;      /* cobre a área, mantendo proporção */
-    background-position: center; /* centra a imagem */
-    background-repeat: no-repeat;
-    z-index: 0;                  /* atrás dos elementos da UI */
-}
-
-/* ---------- Header e Menu por cima ---------- */
+/* Header e menu por cima */
 header {
     position: relative;
-    z-index: 20;                 /* acima do fundo */
+    z-index: 10;
 }
 
 #menu-principal {
-    position: relative;          /* ou absolute/top:0 se quiseres fixo */
-    z-index: 30;                 /* garantir sobreposição */
     width: 100%;
-    background: transparent;     /* sem faixa branca */
-    border-collapse: collapse;   /* tira gaps na tabela */
+    background: transparent;
+    border-collapse: collapse;
 }
 
-/* remover fundo por defeito dos TDs mas SEM atingir .imagem-fundo */
+/* Células do menu sem fundo */
 #menu-principal td {
     background: transparent;
     padding: 8px 12px;
 }
 
-/* estilo do h3 */
+/* Título */
 h3 {
     text-align: center;
-    background-color: orangered;
+    background: orangered;
     margin: 0;
-    font-family: 'Lucida Sans', 'Lucida Grande', Geneva, Verdana, sans-serif;
+    font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
     font-size: small;
 }
 
-/* se quiseres que o menu fique fixo no topo do ecrã (sobre a imagem),
-   descomenta isto e ajusta o padding-top do body/conteúdo se necessário:
-
-#menu-principal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 40;
-}
-*/
-
-/* pequenas correções de imagem dentro da tabela */
+/* Imagens dentro do menu */
 #menu-principal img {
     display: block;
     max-width: 100%;
     height: auto;
+}
+
+
+.imagem-fundo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;      /* largura total */
+    height: 50vh;      /* altura limitada a metade do ecrã */
+    display: flex;     /* centro flexível */
+    justify-content: center; /* centra horizontal */
+    align-items: center;     /* centra vertical */
+    background-color: white; /* fundo para as barras laterais */
+    z-index: -1;
+    overflow: hidden; /* não precisa mas fica seguro */
+}
+
+.imagem-fundo img {
+    max-width: 200%;   /* não ultrapassa largura da caixa */
+    max-height: 100%;  /* não ultrapassa altura da caixa (50vh) */
+    height: auto;
+    width: auto;
+    display: block;
 }
 
