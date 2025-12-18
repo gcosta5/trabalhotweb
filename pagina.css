@@ -4,22 +4,37 @@ html, body {
     padding: 0;
 }
 
-/* Header e menu por cima */
-header {
+/* Hero Section - só esta parte tem a imagem de fundo */
+.hero-section {
+    position: relative;                /* Para posicionar os filhos absolutos */
+    background-image: url('imagens/imagem inicial.webp');
+    background-size: cover;            /* Cobre toda a seção */
+    background-position: center center; /* Centraliza a imagem */
+    background-repeat: no-repeat;
+    
+    height: 60vh;                      /* Altura grande, como na Sixt (80% da tela) - ajusta se quiseres mais/menos */
+    min-height: 500px;                 /* Altura mínima para telas pequenas */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;       /* Alinha o conteúdo no topo */
+    align-items: center;               /* Centraliza horizontalmente */
+}
+
+/* Overlay escuro opcional (como na Sixt, para melhor legibilidade) */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.3);    /* Escurece um pouco a imagem */
+    z-index: 1;
+}
+
+/* Header e menu por cima de tudo */
+header, #menu-principal {
     position: relative;
-    z-index: 10;
-}
-
-#menu-principal {
+    z-index: 10;                       /* Acima do overlay */
     width: 100%;
-    background: transparent;
-    border-collapse: collapse;
-}
-
-/* Células do menu sem fundo */
-#menu-principal td {
-    background: transparent;
-    padding: 8px 12px;
 }
 
 /* Título */
@@ -27,37 +42,41 @@ h3 {
     text-align: center;
     background: orangered;
     margin: 0;
+    padding: 10px 0;
     font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
-    font-size: small;
+    font-size: 1.1rem;
+    color: rgb(0, 0, 0);
 }
 
-/* Imagens dentro do menu */
-#menu-principal img {
-    display: block;
-    max-width: 100%;
-    height: auto;
+/* Menu */
+#menu-principal {
+    background: transparent;
+    border-collapse: collapse;
+    margin-top: 20px;                  /* Espaço abaixo do título */
 }
 
-
-.imagem-fundo {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;      /* largura total */
-    height: 50vh;      /* altura limitada a metade do ecrã */
-    display: flex;     /* centro flexível */
-    justify-content: center; /* centra horizontal */
-    align-items: center;     /* centra vertical */
-    background-color: white; /* fundo para as barras laterais */
-    z-index: -1;
-    overflow: hidden; /* não precisa mas fica seguro */
+#menu-principal td {
+    background: transparent;
+    padding: 8px 20px;
+    text-align: center;
+    color: white;                      /* Texto branco para contrastar com a imagem */
 }
 
-.imagem-fundo img {
-    max-width: 200%;   /* não ultrapassa largura da caixa */
-    max-height: 100%;  /* não ultrapassa altura da caixa (50vh) */
-    height: auto;
-    width: auto;
-    display: block;
+#menu-principal p {
+    margin: 5px 0 0;
+    color: white;
+    font-weight: bold;
 }
 
+/* Opcional: tornar o menu flex para melhor alinhamento (mais moderno que table) */
+#menu-principal tr {
+    display: flex;
+    gap: 40px;                         /* Espaço entre itens */
+}
+
+/* Conteúdo depois da hero (normal) */
+.conteudo-normal {
+    padding: 50px 20px;
+    background: white;                 /* Ou outra cor */
+    text-align: center;
+}
