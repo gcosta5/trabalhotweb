@@ -3,44 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIXT - 113 anos de tradição</title>
+    <title>SIXT - Estrutura</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="pagina.css">
 </head>
 <body>
 
-    <!-- Hero Section com imagem de fundo -->
-    <section class="hero-section">
-        
-        <!-- Header / título (por cima da imagem) -->
-        <header>
-            <h3>113 anos de SIXT. 113 anos de tradição.</h3>
-        </header>
+    <!-- barra de cima -->
+    <header class="top-bar">
+        <p>113 anos de SIXT. 113 anos de tradição.</p>
+    </header>
 
-        <!-- Menu principal (por cima da imagem) -->
-        <table id="menu-principal" role="navigation">
-            <tr>
-                <td id="imagem1">
-                    <img src="imagens/168203.png" alt="Menu" width="50" height="40">
-                </td>
-                <td id="logo">
-                    <img src="imagens/SIXT_Logo-frame.565790a1.png" alt="Logo SIXT" width="70" height="60">
-                </td>
-                <td id="divt1">
-                    <img src="imagens/3664538.png" alt="Gerir Reservas" width="50" height="40">
-                    <p>Gerir Reservas</p>
-                </td>
-            </tr>
-        </table>
+    <!-- fundo -->
+    <section class="fundo">
 
-        <!-- Aqui podes adicionar mais conteúdo por cima, como o formulário de reserva da Sixt -->
-        
+        <!-- menu -->
+        <nav class="nav">
+            <button class="menu">☰</button>
+
+            <div class="logo">SIXT</div>
+
+            <div class="nav-menu">
+                <span>Gerir as Reservas</span>
+                <span>PT | €</span>
+                <span>Iniciar Sessão | Registar</span>
+            </div>
+        </nav>
+
+        <!-- CAIXA DE RESERVA (BOOKING WIDGET) -->
+        <div class="reserva">
+
+            <!--  -->
+            <div class="menu2">
+                <button class="menu2carros" data-tab="carros">Carros</button>
+                <button class="menu2carrinhas" data-tab="carrinhas">Carrinhas</button>
+            </div>
+
+            <!-- FORMULÁRIO -->
+            <form id="booking-form">
+
+                <!-- CAMPO LOCAL -->
+                <div class="field field-full">
+                    <label>Levantamento e devolução</label>
+                    <input type="text" id="local" placeholder="Aeroporto, cidade ou endereço">
+                    <span class="link">+ Local de devolução diferente</span>
+                </div>
+
+                <!-- DATA RECOLHA -->
+                <div class="field">
+                    <label>Data de recolha</label>
+                    <input type="date" id="data-recolha">
+                    <input type="time" id="hora-recolha">
+                </div>
+
+                <!-- DATA DEVOLUÇÃO -->
+                <div class="field">
+                    <label>Data de devolução</label>
+                    <input type="date" id="data-devolucao">
+                    <input type="time" id="hora-devolucao">
+                </div>
+
+                <!-- BOTÃO -->
+                <div class="field field-button">
+                    <button type="submit">Mostrar veículos</button>
+                </div>
+
+            </form>
+
+            <!-- CHECKBOX -->
+            <div class="empresa">
+                <input type="checkbox" id="empresa">
+                <label for="empresa">Aplicar a tarifa empresarial</label>
+            </div>
+
+            <!-- MENSAGEM DO JS -->
+            <p id="mensagem"></p>
+
+        </div>
+
     </section>
 
-    <!-- O resto da página vem aqui (conteúdo normal, sem fundo) -->
-    <!-- Exemplo: -->
-    <section class="conteudo-normal">
-        <p>Aqui vem o resto do site...</p>
-    </section>
-
+    <script src="logica.js"></script>
 </body>
 </html>

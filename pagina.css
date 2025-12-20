@@ -1,82 +1,147 @@
-/* Remover margens padrão */
-html, body {
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Hero Section - só esta parte tem a imagem de fundo */
-.hero-section {
-    position: relative;                /* Para posicionar os filhos absolutos */
-    background-image: url('imagens/imagem inicial.webp');
-    background-size: cover;            /* Cobre toda a seção */
-    background-position: center center; /* Centraliza a imagem */
-    background-repeat: no-repeat;
-    
-    height: 60vh;                      /* Altura grande, como na Sixt (80% da tela) - ajusta se quiseres mais/menos */
-    min-height: 500px;                 /* Altura mínima para telas pequenas */
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;       /* Alinha o conteúdo no topo */
-    align-items: center;               /* Centraliza horizontalmente */
+/* HERO / FUNDO */
+.fundo {
+    min-height: 100vh;
+    background: linear-gradient(#222, #666);
 }
 
-/* Overlay escuro opcional (como na Sixt, para melhor legibilidade) */
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.3);    /* Escurece um pouco a imagem */
-    z-index: 1;
-}
-
-/* Header e menu por cima de tudo */
-header, #menu-principal {
-    position: relative;
-    z-index: 10;                       /* Acima do overlay */
-    width: 100%;
-}
-
-/* Título */
-h3 {
+/* BARRA SUPERIOR */
+.top-bar {
+    background: #ff5f00;
     text-align: center;
-    background: orangered;
-    margin: 0;
-    padding: 10px 0;
-    font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
-    font-size: 1.1rem;
-    color: rgb(0, 0, 0);
-}
-
-/* Menu */
-#menu-principal {
-    background: transparent;
-    border-collapse: collapse;
-    margin-top: 20px;                  /* Espaço abaixo do título */
-}
-
-#menu-principal td {
-    background: transparent;
-    padding: 8px 20px;
-    text-align: center;
-    color: white;                      /* Texto branco para contrastar com a imagem */
-}
-
-#menu-principal p {
-    margin: 5px 0 0;
-    color: white;
+    padding: 8px;
     font-weight: bold;
 }
 
-/* Opcional: tornar o menu flex para melhor alinhamento (mais moderno que table) */
-#menu-principal tr {
+/* NAVEGAÇÃO */
+.nav {
     display: flex;
-    gap: 40px;                         /* Espaço entre itens */
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    color: white;
 }
 
-/* Conteúdo depois da hero (normal) */
-.conteudo-normal {
-    padding: 50px 20px;
-    background: white;                 /* Ou outra cor */
-    text-align: center;
+.menu {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 25px;
+    font-size: 14px;
+}
+
+/* CAIXA BRANCA */
+.reserva {
+    background: white;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+/* widget de reserva */
+.menu2 {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.menu2carrinhas {
+    background: #f1f1f1;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.menu2carros {
+    background: black;
+    color: white;
+}
+
+/* FORMULÁRIO EM GRID */
+#booking-form {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr auto;
+    gap: 20px;
+    align-items: end;
+}
+
+/* CAMPOS */
+.field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.field input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+/* CAMPO GRANDE */
+.field-full {
+    grid-column: 1 / -1;
+}
+
+/* BOTÃO */
+.field-button button {
+    background: #ff5f00;
+    border: none;
+    padding: 16px 25px;
+    border-radius: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* LINK */
+.link {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 14px;
+    color: #ff5f00;
+    cursor: pointer;
+}
+
+/* CHECKBOX */
+.empresa {
+    margin-top: 20px;
+}
+
+/* MENSAGEM */
+#mensagem {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+
+    #booking-form {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-right {
+        display: none;
+    }
 }
