@@ -3,87 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIXT - Estrutura</title>
+    <title>SIXT – Réplica Estrutural</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="pagina.css">
 </head>
 <body>
 
-    <!-- barra de cima -->
-    <header class="top-bar">
-        <p>113 anos de SIXT. 113 anos de tradição.</p>
+    <!-- =========================
+         TOP BAR
+         ========================= -->
+    <div class="topbar">
+        113 anos de SIXT. 113 anos de tradição.
+    </div>
+
+    <!-- =========================
+         HEADER
+         ========================= -->
+    <header class="header">
+        <div class="header-container">
+
+            <!-- Esquerda: menu sandwich + logo -->
+            <div class="header-left">
+                <button class="hamburger" id="hamburger">☰</button>
+                <span class="logo">SIXT</span>
+            </div>
+
+            <!-- Menu sandwich lateral -->
+            <nav class="side-menu" id="side-menu">
+                <ul>
+                    <li><a href="#">Aluguer de longa duração</a></li>
+                    <li><a href="#">SIXT ride</a></li>
+                    <li><a href="#">Empresas</a></li>
+                    <li><a href="#">Ajuda</a></li>
+                </ul>
+            </nav>
+
+            <!-- Direita -->
+            <div class="header-right">
+                <span>🚗 Gerir as Reservas</span>
+                <span>🌍 PT | €</span>
+                <span>👤 Iniciar Sessão | Registar</span>
+            </div>
+
+        </div>
     </header>
 
-    <!-- fundo -->
-    <section class="fundo">
+    <!-- =========================
+         HERO (COM IMAGEM DE FUNDO)
+         ========================= -->
+    <section class="hero">
 
-        <!-- menu -->
-        <nav class="nav">
-            <button class="menu">☰</button>
+        <!-- Booking box -->
+        <div class="booking-box">
 
-            <div class="logo">SIXT</div>
-
-            <div class="nav-menu">
-                <span>Gerir as Reservas</span>
-                <span>PT | €</span>
-                <span>Iniciar Sessão | Registar</span>
-            </div>
-        </nav>
-
-        <!-- CAIXA DE RESERVA (BOOKING WIDGET) -->
-        <div class="reserva">
-
-            <!--  -->
-            <div class="menu2">
-                <button class="menu2carros" data-tab="carros">Carros</button>
-                <button class="menu2carrinhas" data-tab="carrinhas">Carrinhas</button>
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab active">🚗 Carros</button>
+                <button class="tab">🚐 Carrinhas</button>
             </div>
 
-            <!-- FORMULÁRIO -->
-            <form id="booking-form">
+            <!-- Formulário -->
+            <form class="booking-form">
 
-                <!-- CAMPO LOCAL -->
                 <div class="field field-full">
                     <label>Levantamento e devolução</label>
-                    <input type="text" id="local" placeholder="Aeroporto, cidade ou endereço">
-                    <span class="link">+ Local de devolução diferente</span>
+                    <input type="text" placeholder="Aeroporto, cidade ou endereço">
                 </div>
 
-                <!-- DATA RECOLHA -->
                 <div class="field">
                     <label>Data de recolha</label>
-                    <input type="date" id="data-recolha">
-                    <input type="time" id="hora-recolha">
+                    <div class="input-group">
+                        <input type="date">
+                        <input type="time" value="12:30">
+                    </div>
                 </div>
 
-                <!-- DATA DEVOLUÇÃO -->
                 <div class="field">
                     <label>Data de devolução</label>
-                    <input type="date" id="data-devolucao">
-                    <input type="time" id="hora-devolucao">
+                    <div class="input-group">
+                        <input type="date">
+                        <input type="time" value="08:30">
+                    </div>
                 </div>
 
-                <!-- BOTÃO -->
                 <div class="field field-button">
-                    <button type="submit">Mostrar veículos</button>
+                    <button type="button">Mostrar veículos</button>
                 </div>
 
             </form>
 
-            <!-- CHECKBOX -->
-            <div class="empresa">
-                <input type="checkbox" id="empresa">
-                <label for="empresa">Aplicar a tarifa empresarial</label>
+            <div class="enterprise">
+                <label>
+                    <input type="checkbox">
+                    Aplicar a tarifa empresarial
+                </label>
             </div>
 
-            <!-- MENSAGEM DO JS -->
-            <p id="mensagem"></p>
-
         </div>
-
     </section>
 
+    <!-- =========================
+         HEADLINE
+         ========================= -->
+    <section class="headline">
+        <h1>
+            DON'T RENT A CAR.<br>
+            RENT THE CAR.
+        </h1>
+    </section>
+
+    <!-- =========================
+         PROMO 2x2
+         ========================= -->
+    <section class="promo">
+        <div class="promo-grid">
+            <div class="promo-card">CARD 1</div>
+            <div class="promo-card">CARD 2</div>
+            <div class="promo-card">CARD 3</div>
+            <div class="promo-card">CARD 4</div>
+        </div>
+    </section>
+
+    <!-- =========================
+         MORE SIXT
+         ========================= -->
+    <section class="more">
+        <h2>MORE SIXT</h2>
+
+        <div class="more-grid">
+            <div class="more-card">SIXT+ SUBSCRIPTION</div>
+            <div class="more-card">SIXT APP</div>
+            <div class="more-card">SIXT BUSINESS</div>
+        </div>
+    </section>
+
+    <!-- =========================
+         FOOTER
+         ========================= -->
+    <footer class="footer">
+        <p>© SIXT 2025</p>
+    </footer>
+
+    <!-- JS -->
     <script src="logica.js"></script>
 </body>
 </html>
