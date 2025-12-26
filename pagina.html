@@ -4,32 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIXT – Réplica Estrutural</title>
-
-    <!-- CSS -->
     <link rel="stylesheet" href="pagina.css">
 </head>
 <body>
 
-    <!-- =========================
-         TOP BAR
-         ========================= -->
+    <!-- TOPBAR -->
     <div class="topbar">
         113 anos de SIXT. 113 anos de tradição.
     </div>
 
-    <!-- =========================
-         HEADER
-         ========================= -->
+    <!-- HEADER TRANSPARENTE -->
     <header class="header">
         <div class="header-container">
 
-            <!-- Esquerda: menu sandwich + logo -->
             <div class="header-left">
                 <button class="hamburger" id="hamburger">☰</button>
                 <span class="logo">SIXT</span>
             </div>
 
-            <!-- Menu sandwich lateral -->
+            <!-- MENU SANDWICH -->
             <nav class="side-menu" id="side-menu">
                 <ul>
                     <li><a href="#">Aluguer de longa duração</a></li>
@@ -39,7 +32,6 @@
                 </ul>
             </nav>
 
-            <!-- Direita -->
             <div class="header-right">
                 <span>🚗 Gerir as Reservas</span>
                 <span>🌍 PT | €</span>
@@ -49,42 +41,49 @@
         </div>
     </header>
 
-    <!-- =========================
-         HERO (COM IMAGEM DE FUNDO)
-         ========================= -->
+    <!-- HERO -->
     <section class="hero">
 
-        <!-- Booking box -->
+        <!-- WIDGET -->
         <div class="booking-box">
 
-            <!-- Tabs -->
             <div class="tabs">
                 <button class="tab active">🚗 Carros</button>
                 <button class="tab">🚐 Carrinhas</button>
             </div>
 
-            <!-- Formulário -->
             <form class="booking-form">
 
-                <div class="field field-full">
+                <div class="field">
                     <label>Levantamento e devolução</label>
-                    <input type="text" placeholder="Aeroporto, cidade ou endereço">
+                    <div class="field-main">
+                        <input type="text" placeholder="Aeroporto, cidade ou endereço">
+                    </div>
+                </div>
+
+                <div class="diff-return">
+                    <input type="checkbox" id="diff-return">
+                    <label for="diff-return">Local de devolução diferente</label>
                 </div>
 
                 <div class="field">
                     <label>Data de recolha</label>
-                    <div class="input-group">
-                        <input type="date">
-                        <input type="time" value="12:30">
-                    </div>
+                    <input type="text" class="field-date" placeholder="26. dez" readonly>
+                </div>
+
+                <div class="field">
+                    <label>Hora de recolha</label>
+                    <input type="text" class="field-time" value="12:30" readonly>
                 </div>
 
                 <div class="field">
                     <label>Data de devolução</label>
-                    <div class="input-group">
-                        <input type="date">
-                        <input type="time" value="08:30">
-                    </div>
+                    <input type="text" class="field-date" placeholder="30. dez" readonly>
+                </div>
+
+                <div class="field">
+                    <label>Hora de devolução</label>
+                    <input type="text" class="field-time" value="08:30" readonly>
                 </div>
 
                 <div class="field field-button">
@@ -93,19 +92,14 @@
 
             </form>
 
-            <div class="enterprise">
-                <label>
-                    <input type="checkbox">
-                    Aplicar a tarifa empresarial
-                </label>
+            <div class="enterprise-link">
+                Aplicar a tarifa empresarial
             </div>
 
         </div>
     </section>
 
-    <!-- =========================
-         HEADLINE
-         ========================= -->
+    <!-- HEADLINE -->
     <section class="headline">
         <h1>
             DON'T RENT A CAR.<br>
@@ -113,39 +107,19 @@
         </h1>
     </section>
 
-    <!-- =========================
-         PROMO 2x2
-         ========================= -->
+    <!-- PROMO -->
     <section class="promo">
         <div class="promo-grid">
-            <div class="promo-card">CARD 1</div>
-            <div class="promo-card">CARD 2</div>
-            <div class="promo-card">CARD 3</div>
-            <div class="promo-card">CARD 4</div>
+            <div class="promo-card promo-main"></div>
+            <div class="promo-card card2"></div>
+            <div class="promo-card card3"></div>
         </div>
     </section>
 
-    <!-- =========================
-         MORE SIXT
-         ========================= -->
-    <section class="more">
-        <h2>MORE SIXT</h2>
-
-        <div class="more-grid">
-            <div class="more-card">SIXT+ SUBSCRIPTION</div>
-            <div class="more-card">SIXT APP</div>
-            <div class="more-card">SIXT BUSINESS</div>
-        </div>
-    </section>
-
-    <!-- =========================
-         FOOTER
-         ========================= -->
     <footer class="footer">
-        <p>© SIXT 2025</p>
+        © SIXT 2025
     </footer>
 
-    <!-- JS -->
     <script src="logica.js"></script>
 </body>
 </html>

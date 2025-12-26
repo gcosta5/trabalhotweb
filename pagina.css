@@ -1,6 +1,6 @@
-/* =========================
+/* =========================================================
    RESET
-   ========================= */
+   ========================================================= */
 * {
     margin: 0;
     padding: 0;
@@ -8,29 +8,40 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* =========================
-   TOP BAR
-   ========================= */
+body {
+    background: #fff;
+}
+
+/* =========================================================
+   TOPBAR
+   ========================================================= */
 .topbar {
     background: #ff5f00;
     text-align: center;
-    font-weight: bold;
+    font-weight: 800;
     padding: 8px;
+    color: white;
+    font-size: 14px;
 }
 
-/* =========================
+/* =========================================================
    HEADER
-   ========================= */
+   ========================================================= */
 .header {
-    background: linear-gradient(90deg, #000, #333);
-    color: white;
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    z-index: 10;
 }
 
 .header-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 16px 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 40px;
+    color: white;
 }
 
 .header-left {
@@ -41,7 +52,7 @@
 
 .logo {
     font-size: 30px;
-    font-weight: bold;
+    font-weight: 900;
     color: #ff5f00;
 }
 
@@ -53,9 +64,15 @@
     cursor: pointer;
 }
 
-/* =========================
+.header-right {
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+}
+
+/* =========================================================
    MENU SANDWICH
-   ========================= */
+   ========================================================= */
 .side-menu {
     position: fixed;
     top: 0;
@@ -65,7 +82,7 @@
     background: #111;
     padding: 80px 20px;
     transition: left 0.3s ease;
-    z-index: 100;
+    z-index: 200;
 }
 
 .side-menu.active {
@@ -83,53 +100,70 @@
 .side-menu a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
+    font-size: 16px;
 }
 
-/* =========================
-   HERO (IMAGEM DE FUNDO)
-   ========================= */
+/* =========================================================
+   HERO (IMAGEM ATRÁS)
+   ========================================================= */
 .hero {
-    height: 70vh;
-
-    /* 🔴 IMAGEM DE FUNDO DO TOPO */
+    min-height: 100vh;
     background-image: url("imagens/imagem inicial.webp");
     background-size: cover;
-    background-position: center;
+    background-position: center 75%;
     background-repeat: no-repeat;
-
+    position: relative;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    padding-top: 60px;
+    align-items: flex-start;     /* Alinha o box mais ao topo */
+    padding-top: 120px;
 }
 
-/* =========================
-   BOOKING BOX
-   ========================= */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.35),
+        rgba(0,0,0,0.05)
+    );
+}
+
+/* =========================================================
+   BOOKING BOX — ESTILO EXATO SIXT
+   ========================================================= */
 .booking-box {
-    background: white;
-    width: 90%;
-    max-width: 1200px;
-    padding: 30px;
-    border-radius: 22px;
+    position: relative;
+    z-index: 2;
+    background: #fff;
+    width: 96%;
+    max-width: 1650px;
+    padding: 20px 30px;               /* Padding generoso como no original */
+    border-radius: 24px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
 }
 
-/* =========================
-   TABS
-   ========================= */
+/* =========================================================
+   TABS — Estilo SIXT (preto no ativo, ícones)
+   ========================================================= */
 .tabs {
     display: flex;
-    gap: 12px;
+    gap: 10px;
     margin-bottom: 20px;
 }
 
 .tab {
     background: #f2f2f2;
     border: none;
-    padding: 10px 22px;
-    border-radius: 25px;
-    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 30px;              /* Mais arredondado */
+    font-weight: 800;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .tab.active {
@@ -137,55 +171,115 @@
     color: white;
 }
 
-/* =========================
-   FORMULÁRIO
-   ========================= */
+/* =========================================================
+   FORM — Layout em linha como SIXT
+   ========================================================= */
 .booking-form {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr auto;
-    gap: 20px;
+    grid-template-columns: 3fr auto 1.2fr 0.9fr 1.2fr 0.9fr auto;
+    gap: 12px;
     align-items: end;
 }
 
-.field label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 6px;
+/* Checkbox "Local de devolução diferente" */
+.diff-return {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    white-space: nowrap;
+    margin-top: 28px;                 /* Alinha com os inputs */
 }
 
-.field input {
-    width: 100%;
-    padding: 12px;
+.diff-return input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+/* Campo principal grande */
+.field-main {
+    position: relative;
+}
+
+.field-main input {
+    padding-left: 40px;
+    height: 48px;
     border-radius: 12px;
     border: 1px solid #ccc;
+    font-size: 16px;
 }
 
-.field-full {
-    grid-column: 1 / -1;
+.field-main::before {
+    content: "🔍";
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    z-index: 3;
 }
 
-.input-group {
-    display: flex;
-    gap: 10px;
+/* Campos de data e hora */
+.field-date,
+.field-time {
+    height: 48px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    padding: 0 12px 0 40px;
+    font-size: 16px;
+    background-repeat: no-repeat;
+    background-position: 12px center;
 }
 
+.field-date {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%23666" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>');
+}
+
+.field-time {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%23666" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>');
+}
+
+/* Labels */
+.field label,
+.diff-return + label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* Botão */
 .field-button button {
+    height: 48px;
+    padding: 0 40px;
     background: #ff5f00;
     color: white;
     border: none;
-    padding: 18px 30px;
-    border-radius: 16px;
-    font-weight: bold;
+    border-radius: 12px;
+    font-weight: 900;
+    font-size: 16px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+/* Link "Aplicar a tarifa empresarial" */
+.enterprise-link {
+    margin-top: 16px;
+    font-size: 14px;
+    color: #ff5f00;
+    text-decoration: underline;
     cursor: pointer;
 }
 
-/* =========================
+/* =========================================================
    HEADLINE
-   ========================= */
+   ========================================================= */
 .headline {
     background: #ff5f00;
+    padding: 80px 20px;
     text-align: center;
-    padding: 60px 20px;
+    color: white;
 }
 
 .headline h1 {
@@ -193,61 +287,80 @@
     font-weight: 900;
 }
 
-/* =========================
+/* =========================================================
    PROMO
-   ========================= */
+   ========================================================= */
 .promo {
-    padding: 40px 20px;
+    padding: 80px 20px;
 }
 
 .promo-grid {
+    max-width: 1200px;
+    margin: auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 30px;
 }
 
 .promo-card {
-    background: #111; /* podes trocar por imagem */
-    color: white;
-    height: 180px;
-    border-radius: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border-radius: 26px;
+    background-size: cover;
+    background-position: center;
 }
 
-/* =========================
-   MORE SIXT
-   ========================= */
-.more {
-    background: #f2f2f2;
-    padding: 40px 20px;
-    text-align: center;
+.promo-main {
+    grid-column: 1 / -1;
+    height: 450px;
+    background-image: url("imagens/Captura%20de%20ecr%C3%A3%202025-12-25%20173446.png");
 }
 
-.more-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-top: 20px;
+.card2 {
+    height: 300px;
+    background-image: url("imagens/card2.png");
 }
 
-.more-card {
-    background: #111; /* podes trocar por imagem */
-    color: white;
-    height: 200px;
-    border-radius: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.card3 {
+    height: 300px;
+    background-image: url("imagens/card3.png");
 }
 
-/* =========================
+/* =========================================================
    FOOTER
-   ========================= */
+   ========================================================= */
 .footer {
     background: #111;
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 30px;
+}
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+@media (max-width: 900px) {
+    .booking-form {
+        grid-template-columns: 1fr;
+    }
+
+    .diff-return {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+    .field-button {
+        grid-column: 1 / -1;
+    }
+
+    .booking-box {
+        padding: 20px 16px;
+    }
+
+    .hero {
+        background-position: center;
+        padding-top: 100px;
+    }
+
+    .tabs {
+        justify-content: center;
+    }
 }
