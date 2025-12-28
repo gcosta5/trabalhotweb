@@ -1,11 +1,11 @@
 /* =========================================================
-   RESET
+   RESET + FONTE GLOBAL
    ========================================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -25,50 +25,108 @@ body {
 }
 
 /* =========================================================
-   HEADER
+   HEADER (TRANSPARENTE E COLADO AO TOPBAR)
    ========================================================= */
 .header {
     position: absolute;
     top: 40px;
     width: 100%;
-    z-index: 10;
+    z-index: 20;
+    background: transparent;
 }
 
 .header-container {
     max-width: 1600px;
     margin: 0 auto;
-    padding: 16px 32px;
+    padding: 14px 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: white;
 }
 
+/* =========================================================
+   HEADER LEFT
+   ========================================================= */
 .header-left {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 16px;
 }
 
-/* ✅ LOGO COMO IMAGEM (CORREÇÃO DEFINITIVA) */
+/* LOGO SIXT */
 .logo {
-    height: 100px;     /* controla o tamanho real do logo */
+    height: 52px;
     width: auto;
     display: block;
 }
 
+.logo:hover {
+    cursor: pointer;
+}
+
+/* HAMBURGER */
 .hamburger {
     background: none;
     border: none;
     color: white;
-    font-size: 26px;
+    font-size: 22px;
     cursor: pointer;
+    transition: transform 0.2s ease;
 }
 
+.hamburger:hover {
+    transform: scale(1.15);
+}
+
+/* =========================================================
+   HEADER RIGHT
+   ========================================================= */
 .header-right {
     display: flex;
-    gap: 20px;
+    align-items: center;
+    gap: 28px;
     font-size: 14px;
+}
+
+.header-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.header-item img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+/* SUBLINHADO ANIMADO */
+.header-item span,
+.enterprise-link {
+    position: relative;
+    font-weight: 600;
+}
+
+.header-item span::after,
+.enterprise-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+.header-item:hover span::after,
+.enterprise-link:hover::after {
+    transform: scaleX(1);
 }
 
 /* =========================================================
@@ -105,7 +163,7 @@ body {
 }
 
 /* =========================================================
-   HERO
+   HERO (IMAGEM + GRADIENTE SIXT)
    ========================================================= */
 .hero {
     min-height: 100vh;
@@ -117,7 +175,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding-top: 120px;
+    padding-top: 160px;
 }
 
 .hero::before {
@@ -126,8 +184,8 @@ body {
     inset: 0;
     background: linear-gradient(
         to bottom,
-        rgba(0,0,0,0.35),
-        rgba(0,0,0,0.05)
+        rgba(0,0,0,0.45),
+        rgba(0,0,0,0.15)
     );
 }
 
@@ -155,7 +213,7 @@ body {
 }
 
 .tab {
-    position: relative; 
+    position: relative;
     background: #f2f2f2;
     border: none;
     padding: 10px 20px 10px 44px;
@@ -165,6 +223,7 @@ body {
     cursor: pointer;
     display: flex;
     align-items: center;
+    transition: background 0.2s ease;
 }
 
 .tab::before {
@@ -174,15 +233,21 @@ body {
     width: 20px;
     height: 20px;
     background-repeat: no-repeat;
-    background-size: 20px 20px;
+    background-size: contain;
 }
 
+/* ÍCONES */
 .tab.carros::before {
-    background-image: url("imagens/carro.png");
+    background-image: url("imagens/carro-removebg-preview.png");
 }
 
 .tab.carrinhas::before {
-    background-image: url("imagens/carrinha.png");
+    background-image: url("imagens/carrinha-removebg-preview.png");
+}
+
+/* ESTADOS */
+.tab:hover {
+    background: #e6e6e6;
 }
 
 .tab.active {
@@ -190,19 +255,27 @@ body {
     color: white;
 }
 
+
 /* =========================================================
-   FORMULÁRIO
+   FORMULÁRIO (BOOKING)
    ========================================================= */
 .booking-form {
     display: grid;
-    grid-template-columns: 3fr auto 1.2fr 1.2fr auto;
+    grid-template-columns: 90fr auto 1.2fr 1.2fr auto;
     grid-template-rows: auto auto;
     gap: 20px 16px;
     align-items: end;
 }
 
+/* LABELS */
+.booking-form label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+}
+
 /* =========================================================
-   LOCALIZAÇÃO (LINHA 1)
+   LOCALIZAÇÃO
    ========================================================= */
 .field-location {
     grid-column: 1 / 2;
@@ -211,21 +284,19 @@ body {
 
 .field-main {
     position: relative;
-    display: flex;
-    align-items: center;
 }
 
 .field-main input {
     width: 100%;
     height: 48px;
     padding-left: 48px;
-    padding-right: 48px;
+    padding-right: 44px;
     border: 1px solid #ccc;
     border-radius: 12px;
-    font-size: 16px;
-    background: white;
+    font-size: 15px;
 }
 
+/* LUPA */
 .field-main::before {
     content: "";
     position: absolute;
@@ -237,46 +308,53 @@ body {
     background-image: url("imagens/lupa.png");
     background-repeat: no-repeat;
     background-size: contain;
-    z-index: 2;
 }
 
-.field-location .clear {
+/* X (CLEAR) */
+.field-main .clear {
     position: absolute;
-    right: 16px;
-    font-size: 20px;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    line-height: 18px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
     color: #999;
     cursor: pointer;
-    z-index: 2;
+    border-radius: 50%;
 }
 
-.field-location .clear:hover {
-    color: #ff5f00;
+.field-main .clear:hover {
+    background: #eee;
+    color: #333;
 }
 
 /* =========================================================
-   DIFF-RETURN (LINHA 1)
+   DIFF-RETURN (CINZENTO)
    ========================================================= */
 .diff-return {
     grid-column: 2 / 3;
     grid-row: 1;
-    align-self: center;
     display: flex;
     align-items: center;
-    gap: 10px;
-    color: #555;
-    font-weight: 600;
+    gap: 8px;
     font-size: 14px;
+    font-weight: 600;
+    color: #777;
     cursor: pointer;
 }
 
 .diff-return .mais {
-    font-size: 24px;
-    font-weight: 300;
-    color: #ff5f00;
+    font-size: 22px;
+    font-weight: 400;
+    color: #777;
 }
 
 /* =========================================================
-   DATAS (LINHA 2)
+   DATAS
    ========================================================= */
 .field-date-group {
     grid-row: 2;
@@ -287,8 +365,6 @@ body {
 .field-date-group label {
     grid-column: 1 / -1;
     margin-bottom: 8px;
-    font-size: 14px;
-    color: #333;
 }
 
 .field-date,
@@ -296,8 +372,7 @@ body {
     height: 48px;
     border: 1px solid #ccc;
     padding-left: 16px;
-    font-size: 16px;
-    background: white;
+    font-size: 15px;
 }
 
 .field-date {
@@ -310,7 +385,7 @@ body {
 }
 
 /* =========================================================
-   BOTÃO (LINHA 2)
+   BOTÃO
    ========================================================= */
 .field-button {
     grid-column: 5 / 6;
@@ -327,7 +402,11 @@ body {
     font-weight: 900;
     font-size: 16px;
     cursor: pointer;
-    white-space: nowrap;
+    transition: background 0.2s ease;
+}
+
+.field-button button:hover {
+    background: #e65400;
 }
 
 /* =========================================================
@@ -336,24 +415,9 @@ body {
 .enterprise-link {
     margin-top: 16px;
     font-size: 14px;
+    font-weight: 600;
     color: #ff5f00;
-    text-decoration: underline;
     cursor: pointer;
-}
-
-/* =========================================================
-   HEADLINE
-   ========================================================= */
-.headline {
-    background: #ff5f00;
-    padding: 80px 20px;
-    text-align: center;
-    color: white;
-}
-
-.headline h1 {
-    font-size: 48px;
-    font-weight: 900;
 }
 
 /* =========================================================
@@ -370,35 +434,24 @@ body {
    RESPONSIVO
    ========================================================= */
 @media (max-width: 900px) {
+    .header-right {
+        display: none;
+    }
+
+    .logo {
+        height: 36px;
+    }
+
     .booking-form {
         grid-template-columns: 1fr;
-        grid-template-rows: auto;
         gap: 16px;
-    }
-
-    .field-location,
-    .diff-return,
-    .field-date-group,
-    .field-button {
-        grid-column: 1 / -1;
-        grid-row: auto;
-    }
-
-    .booking-box {
-        padding: 20px 16px;
-    }
-
-    .hero {
-        background-position: center;
-        padding-top: 100px;
     }
 
     .tabs {
         justify-content: center;
     }
 
-    /* logo ligeiramente menor no mobile */
-    .logo {
-        height: 24px;
+    .hero {
+        padding-top: 140px;
     }
 }
