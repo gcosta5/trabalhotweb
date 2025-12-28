@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIXT – Réplica Estrutural</title>
+    <title>SIXT</title>
     <link rel="stylesheet" href="pagina.css">
 </head>
 <body>
 
-    <!-- TOPBAR -->
+
     <div class="topbar">
         113 anos de SIXT. 113 anos de tradição.
     </div>
 
-    <!-- HEADER TRANSPARENTE -->
+
     <header class="header">
         <div class="header-container">
 
             <div class="header-left">
                 <button class="hamburger" id="hamburger">☰</button>
-                <span class="logo">SIXT</span>
+                <img src="imagens/SIXT_Logo-frame.565790a1.png" alt="SIXT" class="logo">
+
             </div>
 
             <!-- MENU SANDWICH -->
@@ -33,65 +34,61 @@
             </nav>
 
             <div class="header-right">
-                <span>🚗 Gerir as Reservas</span>
-                <span>🌍 PT | €</span>
-                <span>👤 Iniciar Sessão | Registar</span>
+                <span> Gerir as Reservas</span>
+                <span>PT | €</span>
+                <span>Iniciar Sessão | Registar</span>
             </div>
 
         </div>
     </header>
 
-    <!-- HERO -->
+    
     <section class="hero">
-
         <!-- WIDGET -->
         <div class="booking-box">
 
             <div class="tabs">
-                <button class="tab active">🚗 Carros</button>
-                <button class="tab">🚐 Carrinhas</button>
+                <button class="tab carros active" > Carros</button>
+                <button class="tab carrinhas" >Carrinhas</button>
             </div>
 
             <form class="booking-form">
 
-                <div class="field">
-                    <label>Levantamento e devolução</label>
-                    <div class="field-main">
-                        <input type="text" placeholder="Aeroporto, cidade ou endereço">
-                    </div>
-                </div>
+    <!-- Campo de localização (mantido igual) -->
+    <div class="field field-location">
+        <label>Levantamento e devolução</label>
+        <div class="field-main icon-lupa">
+            <input type="text" placeholder="Aeroporto, cidade ou endereço">
+            <span class="clear">X</span>
+        </div>
+    </div>
 
-                <div class="diff-return">
-                    <input type="checkbox" id="diff-return">
-                    <label for="diff-return">Local de devolução diferente</label>
-                </div>
+    <!-- Link de devolução diferente (movido para baixo do campo de localização) -->
+    <div class="diff-return">
+        <span class="mais">+</span>
+        <span>Local de devolução diferente</span>
+    </div>
 
-                <div class="field">
-                    <label>Data de recolha</label>
-                    <input type="text" class="field-date" placeholder="26. dez" readonly>
-                </div>
+    <!-- Data de recolha -->
+    <div class="field field-date-group">
+        <label>Data de recolha</label>
+        <input type="date" class="field-date">
+        <input type="time" class="field-time">
+    </div>
 
-                <div class="field">
-                    <label>Hora de recolha</label>
-                    <input type="text" class="field-time" value="12:30" readonly>
-                </div>
+    <!-- Data de devolução -->
+    <div class="field field-date-group">
+        <label>Data de devolução</label>
+        <input type="date" class="field-date">
+        <input type="time" class="field-time">
+    </div>
 
-                <div class="field">
-                    <label>Data de devolução</label>
-                    <input type="text" class="field-date" placeholder="30. dez" readonly>
-                </div>
+    <!-- Botão -->
+    <div class="field field-button">
+        <button type="button">Mostrar veículos</button>
+    </div>
 
-                <div class="field">
-                    <label>Hora de devolução</label>
-                    <input type="text" class="field-time" value="08:30" readonly>
-                </div>
-
-                <div class="field field-button">
-                    <button type="button">Mostrar veículos</button>
-                </div>
-
-            </form>
-
+</form>
             <div class="enterprise-link">
                 Aplicar a tarifa empresarial
             </div>
