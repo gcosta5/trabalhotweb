@@ -13,6 +13,30 @@ buttons.forEach(btn => {
 
     });
 
+/* =========================================================
+   FORMULÁRIO FIXO AO FAZER SCROLL (ADIÇÃO)
+   ========================================================= */
+const bookingBox = document.querySelector('.booking-box');
+const bookingTrigger = window.innerHeight * 0.6;
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > bookingTrigger) {
+        bookingBox.classList.add('fixed');
+    } else {
+        bookingBox.classList.remove('fixed');
+    }
+});
+
+
+/* =========================================================
+   MENU SANDWICH (ADIÇÃO)
+   ========================================================= */
+const hamburgerBtn = document.getElementById('hamburger');
+const sideMenu = document.getElementById('side-menu');
+
+hamburgerBtn.addEventListener('click', () => {
+    sideMenu.classList.toggle('active');
+});
 
 
 });

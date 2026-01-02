@@ -5,107 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIXT</title>
     <link rel="stylesheet" href="pagina.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-
+    <!-- TOPBAR -->
     <div class="topbar">
         113 anos de SIXT. 113 anos de tradição.
     </div>
 
-
+    <!-- HEADER -->
     <header class="header">
         <div class="header-container">
 
             <div class="header-left">
                 <button class="hamburger" id="hamburger">☰</button>
                 <img src="imagens/SIXT_Logo-frame.565790a1.png" alt="SIXT" class="logo">
-
             </div>
 
-            <!-- MENU SANDWICH 
-            <nav class="side-menu" id="side-menu">
-                <ul>
-                    <li><a href="#">Aluguer de longa duração</a></li>
-                    <li><a href="#">SIXT ride</a></li>
-                    <li><a href="#">Empresas</a></li>
-                    <li><a href="#">Ajuda</a></li>
-                </ul>
-            </nav>
-            -->
+            <div class="header-right">
+                <div class="header-item">
+                    <img src="imagens/carro branco.removebg-preview.png" alt="">
+                    <span>Gerir as Reservas</span>
+                </div>
 
-          <div class="header-right">
+                <div class="header-item">
+                    <img src="imagens/worldw-removebg-preview.png" alt="">
+                    <span>PT | €</span>
+                </div>
 
-    <div class="header-item">
-        <img src="imagens/carro branco.removebg-preview.png" alt="">
-        <span>Gerir as Reservas</span>
-    </div>
+                <div class="header-item">
+                    <img src="imagens/pessoa-removebg-preview.png" alt="">
+                    <span>Iniciar Sessão | Registar</span>
+                </div>
+            </div>
 
-    <div class="header-item">
-        <img src="imagens/worldw-removebg-preview.png" alt="">
-        <span>PT | €</span>
-    </div>
-
-    <div class="header-item">
-        <img src="imagens/pessoa-removebg-preview.png" alt="">
-        <span>Iniciar Sessão | Registar</span>
-    </div>
-
-</div>
         </div>
     </header>
 
-    
+    <!-- MENU SANDWICH (ATIVADO) -->
+    <nav class="side-menu" id="side-menu">
+        <ul>
+            <li><a href="#">Aluguer de longa duração</a></li>
+            <li><a href="#">SIXT ride</a></li>
+            <li><a href="#">Empresas</a></li>
+            <li><a href="#">Ajuda</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
     <section class="hero">
-        <!-- WIDGET -->
+
+        <!-- BOOKING BOX -->
         <div class="booking-box">
 
             <div class="tabs">
-                <button class="tab carros active" > Carros</button>
-                <button class="tab carrinhas" >Carrinhas</button>
+                <button class="tab carros active">Carros</button>
+                <button class="tab carrinhas">Carrinhas</button>
             </div>
 
             <form class="booking-form">
 
-    <!-- Campo de localização (mantido igual) -->
-    <div class="field field-location">
-        <label>Levantamento e devolução</label>
-        <div class="field-main icon-lupa">
-            <input type="text" placeholder="Aeroporto, cidade ou endereço">
-            <span class="clear">X</span>
-        </div>
-    </div>
+                <!-- LOCALIZAÇÃO -->
+                <div class="field field-location">
+                    <label>Levantamento e devolução</label>
+                    <div class="field-main icon-lupa">
+                        <input type="text" placeholder="Aeroporto, cidade ou endereço">
+                        <span class="clear">X</span>
+                    </div>
+                </div>
 
-    <!-- Link de devolução diferente (movido para baixo do campo de localização) -->
-    <div class="diff-return">
-        <span class="mais">+</span>
-        <span>Local de devolução diferente</span>
-    </div>
+                <!-- DEVOLUÇÃO DIFERENTE -->
+                <div class="diff-return">
+                    <span class="mais">+</span>
+                    <span>Local de devolução diferente</span>
+                </div>
 
-    <!-- Data de recolha -->
-    <div class="field field-date-group">
-        <label>Data de recolha</label>
-        <input type="date" class="field-date">
-        <input type="time" class="field-time">
-    </div>
+                <!-- DATA RECOLHA -->
+                <div class="field field-date-group">
+                    <label>Data de recolha</label>
+                    <input type="date" class="field-date">
+                    <input type="time" class="field-time">
+                </div>
 
-    <!-- Data de devolução -->
-    <div class="field field-date-group">
-        <label>Data de devolução</label>
-        <input type="date" class="field-date">
-        <input type="time" class="field-time">
-    </div>
+                <!-- DATA DEVOLUÇÃO -->
+                <div class="field field-date-group">
+                    <label>Data de devolução</label>
+                    <input type="date" class="field-date">
+                    <input type="time" class="field-time">
+                </div>
 
-    <!-- Botão -->
-    <div class="field field-button">
-        <button type="button">Mostrar veículos</button>
-    </div>
+                <!-- BOTÃO -->
+                <div class="field field-button">
+                    <button type="button">Mostrar veículos</button>
+                </div>
 
-</form>
+            </form>
+
             <div class="enterprise-link">
                 Aplicar a tarifa empresarial
             </div>
@@ -124,58 +123,91 @@
         </p>
     </section>
 
-    <!-- PROMO -->
-    <section class="promo">
-        <div class="promo-grid">
-            <div class="promo-card promo-main"></div>
-            <div class="promo-card card2"></div>
-            <div class="promo-card card3"></div>
+    <!-- ============================= -->
+    <!-- CARDS (ADIÇÃO – SEM IMAGENS) -->
+    <!-- ============================= -->
+    <section class="sixt-cards">
+
+        <!-- CARD GRANDE -->
+        <div class="sixt-card sixt-card-large">
+            <div class="card-image">
+                <!-- IMAGEM AQUI -->
+            </div>
+            <div class="card-content">
+                <h3>BOOK AND MANAGE YOUR RENTALS IN ONE PLACE.</h3>
+                <p>Get the most out of SIXT in our app.</p>
+            </div>
+        </div>
+
+        <!-- GRID DE CARDS -->
+        <div class="sixt-card-grid">
+
+            <div class="sixt-card">
+                <div class="card-image"><!-- imagem --></div>
+                <h4>EARN 2X DELTA MILES</h4>
+            </div>
+
+            <div class="sixt-card">
+                <div class="card-image"><!-- imagem --></div>
+                <h4>START YOUR WEEK IN STYLE</h4>
+            </div>
+
+            <div class="sixt-card">
+                <div class="card-image"><!-- imagem --></div>
+                <h4>SAVE ON LUXURY VEHICLES</h4>
+            </div>
+
+            <div class="sixt-card">
+                <div class="card-image"><!-- imagem --></div>
+                <h4>BUSINESS TRAVEL IN STYLE</h4>
+            </div>
+
         </div>
     </section>
 
+    <!-- FOOTER (INALTERADO) -->
     <footer class="footer">
-    <div class="footer-container">
-        <!-- Coluna 1: Our programs -->
-        <div class="footer-column">
-            <h3>Our programs</h3>
-            <ul>
-                <li><a href="#">SIXT+ Car Subscription</a></li>
-                <li><a href="#">SIXT ride</a></li>
-                <li><a href="#">Car rental deals</a></li>
-                <li><a href="#">SIXT status program</a></li>
-                <li><a href="#">SIXT app</a></li>
-            </ul>
+        <div class="footer-container">
+
+            <div class="footer-column">
+                <h3>Our programs</h3>
+                <ul>
+                    <li><a href="#">SIXT+ Car Subscription</a></li>
+                    <li><a href="#">SIXT ride</a></li>
+                    <li><a href="#">Car rental deals</a></li>
+                    <li><a href="#">SIXT status program</a></li>
+                    <li><a href="#">SIXT app</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>SIXT for business</h3>
+                <ul>
+                    <li><a href="#">Register my business</a></li>
+                    <li><a href="#">Mobility for Business Travel</a></li>
+                    <li><a href="#">Business car alternatives</a></li>
+                    <li><a href="#">Travel agencies</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>About us</h3>
+                <ul>
+                    <li><a href="#">SIXT group</a></li>
+                    <li><a href="#">SIXT Magazine</a></li>
+                    <li><a href="#">SIXT News</a></li>
+                    <li><a href="#">Investor Relations</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Regine Sixt Children's Aid Foundation</a></li>
+                </ul>
+            </div>
+
         </div>
 
-        <!-- Coluna 2: SIXT for business -->
-        <div class="footer-column">
-            <h3>SIXT for business</h3>
-            <ul>
-                <li><a href="#">Register my business</a></li>
-                <li><a href="#">Mobility for Business Travel</a></li>
-                <li><a href="#">Business car alternatives</a></li>
-                <li><a href="#">Travel agencies</a></li>
-            </ul>
+        <div class="footer-copyright">
+            © SIXT 2026
         </div>
-
-        <!-- Coluna 3: About us -->
-        <div class="footer-column">
-            <h3>About us</h3>
-            <ul>
-                <li><a href="#">SIXT group</a></li>
-                <li><a href="#">SIXT Magazine</a></li>
-                <li><a href="#">SIXT News</a></li>
-                <li><a href="#">Investor Relations</a></li>
-                <li><a href="#">Careers</a></li>
-                <li><a href="#">Regine Sixt Children's Aid Foundation</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="footer-copyright">
-        © SIXT 2026
-    </div>
-</footer>
+    </footer>
 
     <script src="logica.js"></script>
 </body>
