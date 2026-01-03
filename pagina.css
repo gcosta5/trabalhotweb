@@ -20,7 +20,7 @@ body {
     text-align: center;
     font-weight: 800;
     padding: 8px;
-    color: white;
+    color: black;
     font-size: 14px;
 }
 
@@ -130,16 +130,50 @@ body {
 }
 
 /* =========================================================
-   MENU SANDWICH
+   OVERLAY MENU
+   ========================================================= */
+.menu-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 150;
+}
+
+.menu-overlay.active{
+  opacity: 1;
+  pointer-events: all;
+}
+
+.side-menu{
+  position: fixed;
+  top: 0;
+  left: -280px;
+  width: 280px;
+  height: 100vh;
+  background: #111;
+  padding: 100px 24px;
+  transition: left 0.3s ease;
+  z-index: 200; /* acima do overlay */
+}
+
+.side-menu.active{
+  left: 0;
+}
+
+/* =========================================================
+   MENU SANDUÍCHE MELHORADO
    ========================================================= */
 .side-menu {
     position: fixed;
     top: 0;
-    left: -260px;
-    width: 260px;
+    left: -280px;
+    width: 280px;
     height: 100vh;
     background: #111;
-    padding: 80px 20px;
+    padding: 100px 24px;
     transition: left 0.3s ease;
     z-index: 200;
 }
@@ -153,29 +187,56 @@ body {
 }
 
 .side-menu li {
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 .side-menu a {
     color: white;
     text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.side-menu a:hover {
+    opacity: 0.7;
+}
+
+/* =========================================================
+   HOVER MENU SANDUÍCHE – IGUAL AO HAMBURGER
+   ========================================================= */
+.side-menu a {
+    display: block;
+    color: white;
+    text-decoration: none;
     font-size: 16px;
+    font-weight: 600;
+    padding: 12px 8px;
+
+    /* IGUAL AO HAMBURGER */
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* HOVER – SÓ AO PASSAR O RATO */
+.side-menu a:hover {
+    transform: translateX(8px);
+    color: #ff5f00;
 }
 
 /* =========================================================
    HERO (IMAGEM + GRADIENTE SIXT)
    ========================================================= */
 .hero {
-    min-height: 250vh;
+    min-height: 100vh;
     background-image: url("imagens/imagem inicial.webp");
     background-size: cover;
-    background-position: center 400%;
+    background-position: center;
     background-repeat: no-repeat;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     padding-top: 80px;
+    padding-bottom: 0;
 }
 
 .hero::before {
@@ -275,7 +336,7 @@ body {
 }
 .booking-box.fixed {
     position: fixed;
-    top: 90px; /* abaixo do header */
+    top: 10px; /* abaixo do header */
     left: 50%;
     transform: translateX(-50%);
     z-index: 50;
@@ -608,3 +669,314 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+/* =========================================================
+   HOVER LINKS MENU (SÓ NO HOVER)
+   ========================================================= */
+.side-menu a{
+  display: block;
+  padding: 12px 8px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.side-menu a:hover{
+  transform: translateX(8px);
+  color: #ff5f00;
+}
+
+/* =========================================================
+   BLOCO LARANJA SIXT
+   ========================================================= */
+.sixt-orange {
+    background: #ff5f00;
+    padding: 90px 24px;
+    text-align: center;
+}
+
+.sixt-orange-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sixt-orange h2 {
+    font-size: 64px;
+    line-height: 1.05;
+    font-weight: 900;
+    color: #111;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.sixt-orange p {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111;
+}
+
+/* ============================= */
+/* RESPONSIVO */
+/* ============================= */
+@media (max-width: 900px) {
+    .sixt-orange {
+        padding: 60px 20px;
+    }
+
+    .sixt-orange h2 {
+        font-size: 40px;
+    }
+
+    .sixt-orange p {
+        font-size: 16px;
+    }
+}
+
+/* =========================================================
+   BENEFÍCIOS SIXT — ALINHAMENTO REAL
+   ========================================================= */
+
+.sixt-benefits {
+    background: #fff;
+    padding: 96px 32px 72px;
+}
+
+.benefits-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 96px;
+}
+
+/* BLOCO */
+.benefit {
+    display: flex;
+    flex-direction: column;
+}
+
+/* LINHA ÍCONE + TEXTO */
+.benefit-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+/* ÍCONE */
+.benefit-header img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+/* LABEL */
+.benefit-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111;
+}
+
+/* TEXTO PRINCIPAL */
+.benefit h3 {
+    font-size: 26px;
+    line-height: 1.25;
+    font-weight: 800;
+    color: #111;
+    letter-spacing: -0.2px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+    .benefits-container {
+        grid-template-columns: 1fr;
+        gap: 56px;
+    }
+
+    .benefit h3 {
+        font-size: 22px;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 1100px) {
+    .benefits-container {
+        grid-template-columns: 1fr;
+        gap: 56px;
+    }
+
+    .benefit h3 {
+        font-size: 22px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE – TABLET
+   ========================================================= */
+@media (max-width: 1100px) {
+    .benefits-container {
+        grid-template-columns: 1fr;
+        gap: 56px;
+    }
+
+    .benefit h3 {
+        font-size: 22px;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE – MOBILE
+   ========================================================= */
+@media (max-width: 600px) {
+    .sixt-benefits {
+        padding: 64px 24px;
+    }
+
+    .benefit img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .benefit-label {
+        font-size: 13px;
+    }
+
+    .benefit h3 {
+        font-size: 20px;
+    }
+}
+
+/* ===============================
+   PROMO SECTION (SIXT STYLE)
+================================ */
+.promo-section {
+    max-width: 1600px;
+    margin: 80px auto;
+    padding: 0 32px;
+}
+
+/* CARD BASE */
+.promo-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+/* CARD GRANDE */
+/* CARD GRANDE */
+.promo-card-large {
+    height: 420px;
+    margin-bottom: 32px;
+    background-image: linear-gradient(
+        to right,
+        rgba(0,0,0,0.7),
+        rgba(0,0,0,0.15)
+    ),
+    url("imagens/mercedes card1.webp");
+}
+
+/* CARD PEQUENO ESQUERDA */
+.promo-ev {
+    background-image: linear-gradient(
+        to right,
+        rgba(0,0,0,0.7),
+        rgba(0,0,0,0.15)
+    ),
+    url("imagens/imagemcard2.webp");
+}
+
+/* CARD PEQUENO DIREITA */
+.promo-porsche {
+    background-image: linear-gradient(
+        to right,
+        rgba(0,0,0,0.7),
+        rgba(0,0,0,0.15)
+    ),
+    url("imagens/imagemcard3.webp");
+}
+
+/* OVERLAY CONTEÚDO */
+.promo-overlay {
+    position: absolute;
+    inset: 0;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* BADGE DESCONTO */
+.promo-badge {
+    position: absolute;
+    top: 32px;
+    left: 32px;
+    border: 2px solid white;
+    padding: 10px 14px;
+    text-align: center;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.promo-badge strong {
+    font-size: 28px;
+}
+
+/* TEXTOS */
+.promo-card h3 {
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom: 6px;
+}
+
+.promo-card h4 {
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 6px;
+}
+
+.promo-card p {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 14px;
+}
+
+/* BOTÃO */
+.promo-btn {
+    align-self: flex-start;
+    padding: 8px 16px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    font-weight: 700;
+    font-size: 13px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.promo-btn:hover {
+    background: white;
+    color: black;
+}
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+    .promo-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .promo-card-large {
+        height: 320px;
+    }
+}
+
+
