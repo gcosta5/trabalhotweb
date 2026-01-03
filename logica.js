@@ -1,3 +1,5 @@
+
+
 // logica.js
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -62,9 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Elementos do formulário
     const pickupLocationInput = document.querySelector('.field-location input');
-    const diffReturnToggle = document.querySelector('.diff-return');
+    const diffReturnToggle = document.querySelector('.localdev');
     const showVehiclesBtn = document.querySelector('.field-button button');
-    const enterpriseLink = document.querySelector('.enterprise-link');
+    const enterpriseLink = document.querySelector('.empresa-link');
 
     // Criar campo de devolução diferente
     const returnLocationField = document.createElement('div');
@@ -112,24 +114,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===============================
     const veiculosDisponiveis = [
         // CARROS (índices 0 a 7)
-        { marca: 'Fiat',         modelo: '500',          lugares: 4, portas: 3, transmissao: 'Manual',      ar: true },
-        { marca: 'Volkswagen',   modelo: 'Polo',         lugares: 5, portas: 5, transmissao: 'Manual',      ar: true },
-        { marca: 'Peugeot',      modelo: '208',          lugares: 5, portas: 5, transmissao: 'Automática',  ar: true },
-        { marca: 'Opel',         modelo: 'Corsa',        lugares: 5, portas: 5, transmissao: 'Manual',      ar: true },
-        { marca: 'Seat',         modelo: 'Ibiza',        lugares: 5, portas: 5, transmissao: 'Manual',      ar: true },
-        { marca: 'Renault',      modelo: 'Clio',         lugares: 5, portas: 5, transmissao: 'Manual',      ar: true },
-        { marca: 'Toyota',       modelo: 'Yaris',        lugares: 5, portas: 5, transmissao: 'Automática',  ar: true },
-        { marca: 'Hyundai',      modelo: 'i20',          lugares: 5, portas: 5, transmissao: 'Manual',      ar: true },
+        { marca: 'Fiat',         modelo: '500',  imagem: 'imagens/mercedes card1.webp',        lugares: 4, portas: 3, transmissao: 'Manual',      ar: true },
+        { marca: 'Volkswagen',   modelo: 'Polo', imagem: 'imagens/mercedes card1.webp',        lugares: 5, portas: 5, transmissao: 'Manual',      ar: true },
+        { marca: 'Peugeot',      modelo: '208',  imagem: 'imagens/mercedes card1.webp',        lugares: 5, portas: 5, transmissao: 'Automática',  ar: true },
+        { marca: 'Opel',         modelo: 'Corsa',  imagem: 'imagens/mercedes card1.webp',      lugares: 5, portas: 5, transmissao: 'Manual',      ar: true },
+        { marca: 'Seat',         modelo: 'Ibiza', imagem: 'imagens/mercedes card1.webp',       lugares: 5, portas: 5, transmissao: 'Manual',      ar: true },
+        { marca: 'Renault',      modelo: 'Clio',  imagem: 'imagens/mercedes card1.webp',       lugares: 5, portas: 5, transmissao: 'Manual',      ar: true },
+        { marca: 'Toyota',       modelo: 'Yaris', imagem: 'imagens/mercedes card1.webp',       lugares: 5, portas: 5, transmissao: 'Automática',  ar: true },
+        { marca: 'Hyundai',      modelo: 'i20',   imagem: 'imagens/mercedes card1.webp',       lugares: 5, portas: 5, transmissao: 'Manual',      ar: true },
 
         // CARRINHAS (índices 8 a 15)
-        { marca: 'Citroën',      modelo: 'Berlingo',     lugares: 5, portas: 5, transmissao: 'Manual',      ar: true },
-        { marca: 'Ford',         modelo: 'Transit Custom', lugares: 7, portas: 5, transmissao: 'Manual',    ar: true },
-        { marca: 'Mercedes',     modelo: 'Vito',         lugares: 8, portas: 5, transmissao: 'Automática',  ar: true },
-        { marca: 'Renault',      modelo: 'Trafic',       lugares: 9, portas: 5, transmissao: 'Manual',      ar: true },
-        { marca: 'Volkswagen',   modelo: 'Transporter',  lugares: 9, portas: 5, transmissao: 'Manual',      ar: true },
-        { marca: 'Peugeot',      modelo: 'Expert',       lugares: 8, portas: 5, transmissao: 'Automática',  ar: true },
-        { marca: 'Fiat',         modelo: 'Ducato',       lugares: 9, portas: 5, transmissao: 'Manual',      ar: true },
-        { marca: 'Opel',         modelo: 'Vivaro',       lugares: 9, portas: 5, transmissao: 'Automática',  ar: true },
+        { marca: 'Citroën',      modelo: 'Berlingo', imagem: 'imagens/mercedes card1.webp',    lugares: 5, portas: 5, transmissao: 'Manual',      ar: true },
+        { marca: 'Ford',         modelo: 'Transit Custom', imagem: 'imagens/mercedes card1.webp', lugares: 7, portas: 5, transmissao: 'Manual',    ar: true },
+        { marca: 'Mercedes',     modelo: 'Vito',  imagem: 'imagens/mercedes card1.webp',       lugares: 8, portas: 5, transmissao: 'Automática',  ar: true },
+        { marca: 'Renault',      modelo: 'Trafic', imagem: 'imagens/mercedes card1.webp',      lugares: 9, portas: 5, transmissao: 'Manual',      ar: true },
+        { marca: 'Volkswagen',   modelo: 'Transporter',imagem: 'imagens/mercedes card1.webp',  lugares: 9, portas: 5, transmissao: 'Manual',      ar: true },
+        { marca: 'Peugeot',      modelo: 'Expert', imagem: 'imagens/mercedes card1.webp',      lugares: 8, portas: 5, transmissao: 'Automática',  ar: true },
+        { marca: 'Fiat',         modelo: 'Ducato', imagem: 'imagens/mercedes card1.webp',      lugares: 9, portas: 5, transmissao: 'Manual',      ar: true },
+        { marca: 'Opel',         modelo: 'Vivaro', imagem: 'imagens/mercedes card1.webp',      lugares: 9, portas: 5, transmissao: 'Automática',  ar: true },
     ];
 
     // Função para verificar fim de semana
@@ -232,9 +234,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             html += `
                 <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.1);">
-                    <div style="height: 220px; background: #e5e5e5; display: flex; align-items: center; justify-content: center; font-size: 80px; color: #bbb;">
-                        ${veiculo.marca[0]}
-                    </div>
+                    <div style="height: 220px; display: flex; align-items: center; justify-content: center;">
+    <img 
+        src="${veiculo.imagem}" 
+        alt="${veiculo.marca} ${veiculo.modelo}"
+        style="max-width: 90%; max-height: 100%; object-fit: contain;"
+    >
+</div>
+
                     <div style="padding: 25px;">
                         <h3 style="margin: 0 0 15px; color: #333;">${numero} - ${veiculo.marca} ${veiculo.modelo}</h3>
                         <ul style="list-style: none; padding: 0; margin: 15px 0; color: #555; line-height: 1.8;">
@@ -267,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
 
         section.innerHTML = html;
-        document.querySelector('.hero').insertAdjacentElement('afterend', section);
+        document.querySelector('.fundo').insertAdjacentElement('afterend', section);
     });
 });
 

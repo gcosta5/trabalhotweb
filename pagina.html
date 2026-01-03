@@ -2,53 +2,72 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
+
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>SIXT</title>
 
+    <!-- CSS -->
     <link rel="stylesheet" href="pagina.css">
 
+    <!-- Importação da fonte a partir do Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- TOPBAR -->
-    <div class="topbar">
+    <!-- Barra no topo do site -->
+    <div class="barranotopo">
         113 anos de SIXT. 113 anos de tradição.
     </div>
 
-    <!-- HEADER -->
-    <header class="header">
-        <div class="header-container">
+    <!-- barra de navegação -->
+    <header class="barramenu">
+        <div class="barramenu-barra">
 
-            <div class="header-left">
+            <!-- Zona esquerda do menu (hamburger + logótipo) -->
+            <div class="barramenu-esquerda">
+                
                 <button class="hamburger" id="hamburger">☰</button>
+
+                
                 <img src="imagens/SIXT_Logo-frame.565790a1.png" alt="SIXT" class="logo">
             </div>
 
-            <div class="header-right">
-                <div class="header-item">
-                    <img src="imagens/carro branco.removebg-preview.png" alt="">
+            <!-- Zona direita do menu (itens de navegação) -->
+            <div class="barramenu-direita">
+
+                <div class="barramenu-item">
+                    <img src="imagens/carro branco.removebg-preview.png">
                     <span>Gerir as Reservas</span>
                 </div>
 
-                <div class="header-item">
-                    <img src="imagens/worldw-removebg-preview.png" alt="">
-                    <span>PT | €</span>
+                <!-- Item com submenu (apenas um nível, ativado por hover) -->
+                <div class="barramenu-item has-submenu">
+                    <img src="imagens/worldw-removebg-preview.png">
+                    <span>Empresas</span>
+
+                    <!-- Submenu -->
+                    <ul class="submenu">
+                        <li><a href="#">Frotas</a></li>
+                        <li><a href="#">Corporate</a></li>
+                        <li><a href="#">Viagens de Negócio</a></li>
+                    </ul>
                 </div>
 
-                <div class="header-item">
-                    <img src="imagens/pessoa-removebg-preview.png" alt="">
+                <!-- Item de autenticação "faz de conta" -->
+                <div class="barramenu-item">
+                    <img src="imagens/pessoa-removebg-preview.png">
                     <span>Iniciar Sessão | Registar</span>
                 </div>
-            </div>
 
+            </div>
         </div>
     </header>
 
-    <!-- MENU SANDUÍCHE -->
-    <nav class="side-menu" id="side-menu">
+    <nav class="menusandwiche" id="side-menu">
         <ul>
             <li><a href="#">Aluguer de longa duração</a></li>
             <li><a href="#">SIXT ride</a></li>
@@ -57,22 +76,25 @@
         </ul>
     </nav>
 
-    <!-- OVERLAY -->
+    <!-- Overlay escuro que surge quando o menu sanduíche está activo -->
     <div class="menu-overlay" id="menu-overlay"></div>
 
-    <!-- HERO -->
-    <section class="hero">
+    <!-- Secção principal com imagem de fundo (hero section) -->
+    <section class="fundo">
 
-        <!-- BOOKING BOX -->
+        <!-- Caixa de pesquisa / reserva -->
         <div class="booking-box">
 
+            <!-- Separadores para tipo de veículo -->
             <div class="tabs">
                 <button class="tab carros active">Carros</button>
                 <button class="tab carrinhas">Carrinhas</button>
             </div>
 
+            <!-- Formulário de pesquisa -->
             <form class="booking-form">
 
+                <!-- Campo de localização -->
                 <div class="field field-location">
                     <label>Levantamento e devolução</label>
                     <div class="field-main">
@@ -81,39 +103,44 @@
                     </div>
                 </div>
 
-                <div class="diff-return">
+                <!-- Opção para local de devolução diferente -->
+                <div class="localdev">
                     <span class="mais">+</span>
                     <span>Local de devolução diferente</span>
                 </div>
 
+                <!-- Data e hora de recolha -->
                 <div class="field field-date-group">
                     <label>Data de recolha</label>
                     <input type="date" class="field-date">
                     <input type="time" class="field-time">
                 </div>
 
+                <!-- Data e hora de devolução -->
                 <div class="field field-date-group">
                     <label>Data de devolução</label>
                     <input type="date" class="field-date">
                     <input type="time" class="field-time">
                 </div>
 
+                <!-- Botão de submissão -->
                 <div class="field field-button">
                     <button type="button">Mostrar veículos</button>
                 </div>
 
             </form>
 
-            <div class="enterprise-link">
+            <!-- Link para activar tarifa empresarial -->
+            <div class="empresa-link">
                 Aplicar a tarifa empresarial
             </div>
 
         </div>
     </section>
 
-    <!-- BLOCO LARANJA -->
-    <section class="sixt-orange">
-        <div class="sixt-orange-content">
+    <!-- Bloco promocional laranja -->
+    <section class="sixt-blocolaranja">
+        <div class="sixt-blocolaranja-content">
             <h2>
                 A AVENTURA COMEÇA AQUI.<br>
                 EXPLORE O PODER DA<br>
@@ -125,121 +152,103 @@
         </div>
     </section>
 
-    <!-- BENEFÍCIOS SIXT -->
+    <!-- Secção de benefícios da SIXT -->
     <section class="sixt-benefits">
-
         <div class="benefits-container">
 
+            <!-- Benefício individual -->
             <div class="benefit">
                 <div class="benefit-header">
-                <img src="imagens/mundobranco.png" alt="Confiável Mundialmente">
-                <span class="benefit-label">Confiável Mundialmente</span>
+                    <img src="imagens/mundobranco.png" alt="">
+                    <span class="benefit-label">Confiável Mundialmente</span>
                 </div>
                 <h3>+2000 estações SIXT em<br>105 países</h3>
             </div>
 
             <div class="benefit">
                 <div class="benefit-header">
-                <img src="imagens/carrobranco.png" alt="Veículos Exclusivos">
-                <span class="benefit-label">Veículos Exclusivos</span>
+                    <img src="imagens/carrobranco.png" alt="">
+                    <span class="benefit-label">Veículos Exclusivos</span>
                 </div>
                 <h3>Desde modelos económicos<br>até viaturas premium</h3>
             </div>
 
             <div class="benefit">
                 <div class="benefit-header">
-                <img src="imagens/maobranca.png" alt="Serviço de Excelência">
-                <span class="benefit-label">Serviço de Excelência</span>
+                    <img src="imagens/maobranca.png" alt="">
+                    <span class="benefit-label">Serviço de Excelência</span>
                 </div>
                 <h3>Sem stress,<br>Sem complicações</h3>
             </div>
 
         </div>
-
     </section>
 
+    <!-- Secção promocional com cartões -->
     <section class="promo-section">
 
-    <!-- CARD GRANDE -->
-    <div class="promo-card promo-card-large">
-        <div class="promo-overlay">
-            <div class="promo-badge">
-                <span>ATÉ</span>
-                <strong>24%</strong>
-                <span>DE DESCONTO</span>
-            </div>
-
-            <h3>MERRY SIXTMAS</h3>
-            <p>24% de desconto</p>
-
-            <button class="promo-btn">Reservar</button>
-        </div>
-    </div>
-
-    <!-- CARDS PEQUENOS -->
-    <div class="promo-grid">
-
-        <div class="promo-card promo-card-small promo-ev">
+        <!-- Cartão promocional principal -->
+        <div class="promo-card promo-card-large">
             <div class="promo-overlay">
-                <h4>CONDUZIR EM LISBOA É FÁCIL. MUITO FÁCIL.</h4>
-                <p>Descobre os elétricos XEV da SIXT</p>
+                <div class="promo-badge">
+                    <span>ATÉ</span>
+                    <strong>24%</strong>
+                    <span>DE DESCONTO</span>
+                </div>
+
+                <h3>MERRY SIXTMAS</h3>
+                <p>24% de desconto</p>
                 <button class="promo-btn">Reservar</button>
             </div>
         </div>
 
-        <div class="promo-card promo-card-small promo-porsche">
-            <div class="promo-overlay">
-                <h4>DESCUBRA A NOSSA GAMA PORSCHE</h4>
-                <p>Com a SIXT, ao volante de um sonho.</p>
-                <button class="promo-btn">Reservar</button>
-            </div>
-        </div>
+        <!-- Grelha de cartões promocionais secundários -->
+        <div class="promo-grid">
 
-    </div>
-
-</section>
-
-
-    <!-- CARDS -->
-    <section class="sixt-cards">
-
-        <div class="sixt-card sixt-card-large">
-            <div class="card-image"></div>
-            <div class="card-content">
-                <h3>BOOK AND MANAGE YOUR RENTALS IN ONE PLACE.</h3>
-                <p>Get the most out of SIXT in our app.</p>
-            </div>
-        </div>
-
-        <div class="sixt-card-grid">
-
-            <div class="sixt-card">
-                <div class="card-image"></div>
-                <h4>EARN 2X DELTA MILES</h4>
+            <div class="promo-card promo-card-small promo-ev">
+                <div class="promo-overlay">
+                    <h4>CONDUZIR EM LISBOA É FÁCIL. MUITO FÁCIL.</h4>
+                    <p>Descobre os elétricos XEV da SIXT</p>
+                    <button class="promo-btn">Reservar</button>
+                </div>
             </div>
 
-            <div class="sixt-card">
-                <div class="card-image"></div>
-                <h4>START YOUR WEEK IN STYLE</h4>
-            </div>
-
-            <div class="sixt-card">
-                <div class="card-image"></div>
-                <h4>SAVE ON LUXURY VEHICLES</h4>
-            </div>
-
-            <div class="sixt-card">
-                <div class="card-image"></div>
-                <h4>BUSINESS TRAVEL IN STYLE</h4>
+            <div class="promo-card promo-card-small promo-porsche">
+                <div class="promo-overlay">
+                    <h4>DESCUBRA A NOSSA GAMA PORSCHE</h4>
+                    <p>Com a SIXT, ao volante de um sonho.</p>
+                    <button class="promo-btn">Reservar</button>
+                </div>
             </div>
 
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- Secção "Mais SIXT" -->
+    <section class="more-sixt">
+
+        <h2 class="more-sixt-title">MAIS SIXT</h2>
+
+        <!-- Grelha de cartões apenas com imagem -->
+        <div class="more-sixt-grid">
+            <div class="more-sixt-card card-empresas"></div>
+            <div class="more-sixt-card card-subscription"></div>
+            <div class="more-sixt-card card-ride"></div>
+        </div>
+
+    </section>
+
+    <!-- Banner intermédio apenas com imagem -->
+    <section class="sixt-image-banner"></section>
+
+    <!-- Banner final antes do rodapé -->
+    <section class="sixt-final-image"></section>
+
+    <!-- Rodapé do site -->
     <footer class="footer">
         <div class="footer-container">
 
+            <!-- Coluna do rodapé -->
             <div class="footer-column">
                 <h3>Our programs</h3>
                 <ul>
@@ -275,11 +284,13 @@
 
         </div>
 
+        <!-- Direitos de autor -->
         <div class="footer-copyright">
             © SIXT 2026
         </div>
     </footer>
 
+    <!-- Ficheiro JavaScript -->
     <script src="logica.js"></script>
 </body>
 </html>

@@ -1,21 +1,25 @@
 /* =========================================================
    RESET + FONTE GLOBAL
+   Remove margens e paddings por defeito do browser,
+   garante box-sizing consistente e define a fonte global
    ========================================================= */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* largura/altura incluem padding e border */
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
 
+/* Cor de fundo base do site */
 body {
     background: #fff;
 }
 
 /* =========================================================
-   TOPBAR
+   BARRA NO TOPO DO SITE
+   Faixa informativa laranja no topo da página
    ========================================================= */
-.topbar {
+.barranotopo {
     background: #ff5f00;
     text-align: center;
     font-weight: 800;
@@ -25,36 +29,40 @@ body {
 }
 
 /* =========================================================
-   HEADER (TRANSPARENTE E COLADO AO TOPBAR)
+   BARRA DO MENU PRINCIPAL
+   Header sobreposto à imagem principal (hero)
    ========================================================= */
-.header {
-    position: absolute;
-    top: 40px;
+.barramenu {
+    position: absolute;       /* fica por cima do hero */
+    top: 40px;                /* abaixo da barra laranja */
     width: 100%;
-    z-index: 20;
+    z-index: 20;              /* garante que fica acima do fundo */
     background: transparent;
 }
 
-.header-container {
-    max-width: 1600px;
+/* Container interno da barra de menu */
+.barramenu-barra {
+    max-width: 1600px;        /* limita largura em ecrãs grandes */
     margin: 0 auto;
     padding: 14px 32px;
-    display: flex;
+
+    display: flex;            /* flexbox para alinhar esquerda/direita */
     justify-content: space-between;
     align-items: center;
+
     color: white;
 }
 
 /* =========================================================
-   HEADER LEFT
+   ÁREA ESQUERDA DO MENU (hamburger + logo)
    ========================================================= */
-.header-left {
+.barramenu-esquerda {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 16px;                /* espaço entre hamburger e logo */
 }
 
-/* LOGO SIXT */
+/* Logo da SIXT */
 .logo {
     height: 52px;
     width: auto;
@@ -65,13 +73,18 @@ body {
     cursor: pointer;
 }
 
-/* HAMBURGER */
+/* =========================================================
+   BOTÃO HAMBURGER
+   Usado sobretudo em resoluções mais baixas
+   ========================================================= */
 .hamburger {
     background: none;
     border: none;
     color: white;
     font-size: 22px;
     cursor: pointer;
+
+    /* pequena animação ao passar o rato */
     transition: transform 0.2s ease;
 }
 
@@ -80,169 +93,176 @@ body {
 }
 
 /* =========================================================
-   HEADER RIGHT
+   ÁREA DIREITA DO MENU (desktop)
    ========================================================= */
-.header-right {
+.barramenu-direita {
     display: flex;
     align-items: center;
     gap: 28px;
     font-size: 14px;
 }
 
-.header-item {
+/* Cada item individual do menu */
+.barramenu-item {
     display: flex;
     align-items: center;
     gap: 8px;
     cursor: pointer;
-    white-space: nowrap;
+    white-space: nowrap; /* impede quebra de linha */
 }
 
-.header-item img {
+/* Ícones dos itens do menu */
+.barramenu-item img {
     width: 28px;
     height: 28px;
     object-fit: contain;
 }
 
-/* SUBLINHADO ANIMADO */
-.header-item span,
-.enterprise-link {
+/* =========================================================
+   SUBLINHADO ANIMADO EM HOVER
+   Usado nos textos do menu e no link empresarial
+   ========================================================= */
+.barramenu-item span,
+.empresa-link {
     position: relative;
     font-weight: 600;
 }
 
-.header-item span::after,
-.enterprise-link::after {
+/* Linha invisível inicialmente */
+.barramenu-item span::after,
+.empresa-link::after {
     content: "";
     position: absolute;
     left: 0;
     bottom: -4px;
+
     width: 100%;
     height: 2px;
     background: currentColor;
-    transform: scaleX(0);
+
+    transform: scaleX(0);          /* começa escondida */
     transform-origin: left;
     transition: transform 0.25s ease;
 }
 
-.header-item:hover span::after,
-.enterprise-link:hover::after {
+/* Linha aparece ao passar o rato */
+.barramenu-item:hover span::after,
+.empresa-link:hover::after {
     transform: scaleX(1);
 }
 
 /* =========================================================
-   OVERLAY MENU
+   MENU SANDUÍCHE (MENU LATERAL)
    ========================================================= */
-.menu-overlay{
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 150;
-}
-
-.menu-overlay.active{
-  opacity: 1;
-  pointer-events: all;
-}
-
-.side-menu{
-  position: fixed;
-  top: 0;
-  left: -280px;
-  width: 280px;
-  height: 100vh;
-  background: #111;
-  padding: 100px 24px;
-  transition: left 0.3s ease;
-  z-index: 200; /* acima do overlay */
-}
-
-.side-menu.active{
-  left: 0;
-}
-
-/* =========================================================
-   MENU SANDUÍCHE MELHORADO
-   ========================================================= */
-.side-menu {
+.menusandwiche {
     position: fixed;
     top: 0;
-    left: -280px;
+    left: -280px;             /* começa fora do ecrã */
     width: 280px;
     height: 100vh;
+
     background: #111;
     padding: 100px 24px;
-    transition: left 0.3s ease;
-    z-index: 200;
+
+    transition: left 0.3s ease; /* animação de entrada */
+    z-index: 200;               /* acima do overlay */
 }
 
-.side-menu.active {
+/* Estado ativo (JS adiciona a classe) */
+.menusandwiche.active {
     left: 0;
 }
 
-.side-menu ul {
+/* Lista do menu sanduíche */
+.menusandwiche ul {
     list-style: none;
 }
 
-.side-menu li {
+.menusandwiche li {
     margin-bottom: 24px;
 }
 
-.side-menu a {
+/* Links do menu sanduíche */
+.menusandwiche a {
     color: white;
     text-decoration: none;
     font-size: 18px;
     font-weight: 600;
 }
 
-.side-menu a:hover {
+/* Hover simples */
+.menusandwiche a:hover {
     opacity: 0.7;
 }
 
 /* =========================================================
-   HOVER MENU SANDUÍCHE – IGUAL AO HAMBURGER
+   HOVER ANIMADO DO MENU SANDUÍCHE
+   (desliza ligeiramente para a direita)
    ========================================================= */
-.side-menu a {
+.menusandwiche a {
     display: block;
-    color: white;
-    text-decoration: none;
     font-size: 16px;
-    font-weight: 600;
     padding: 12px 8px;
 
-    /* IGUAL AO HAMBURGER */
     transition: transform 0.2s ease, color 0.2s ease;
 }
 
-/* HOVER – SÓ AO PASSAR O RATO */
-.side-menu a:hover {
+.menusandwiche a:hover {
     transform: translateX(8px);
     color: #ff5f00;
 }
 
 /* =========================================================
-   HERO (IMAGEM + GRADIENTE SIXT)
+   OVERLAY
+   Fundo escuro para fechar o menu ao clicar fora
    ========================================================= */
-.hero {
+.menu-overlay {
+    position: fixed;
+    inset: 0;                      /* top, right, bottom, left = 0 */
+    background: rgba(0,0,0,0.45);
+
+    opacity: 0;
+    pointer-events: none;          /* não clicável quando escondido */
+
+    transition: opacity 0.3s ease;
+    z-index: 150;
+}
+
+/* Overlay ativo */
+.menu-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* =========================================================
+   FUNDO / HERO
+   Imagem principal com gradiente por cima
+   ========================================================= */
+.fundo {
     min-height: 100vh;
+
     background-image: url("imagens/imagem inicial.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
     position: relative;
+
+    /* Flexbox para centrar a booking-box */
     display: flex;
     justify-content: center;
     align-items: flex-start;
+
     padding-top: 80px;
     padding-bottom: 0;
 }
 
-.hero::before {
+/* Gradiente escuro por cima da imagem */
+.fundo::before {
     content: "";
     position: absolute;
     inset: 0;
+
     background: linear-gradient(
         to bottom,
         rgba(0,0,0,0.45),
@@ -252,98 +272,130 @@ body {
 
 /* =========================================================
    BOOKING BOX
+   Caixa branca do formulário de pesquisa
    ========================================================= */
 .booking-box {
     position: relative;
-    z-index: 4;
+    z-index: 4; /* acima do gradiente */
+
     background: #fff;
     width: 96%;
     max-width: 1000px;
+
     padding: 50px 50px;
     border-radius: 24px;
+
     box-shadow: 0 12px 35px rgba(0,0,0,0.25);
 }
 
 /* =========================================================
-   TABS
+   TABS (Carros / Carrinhas)
+   Grupo de botões que permite alternar entre categorias
    ========================================================= */
+
+/* Container das tabs */
 .tabs {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+    display: flex;          /* coloca as tabs lado a lado */
+    gap: 10px;              /* espaço horizontal entre tabs */
+    margin-bottom: 20px;    /* afastamento inferior em relação ao formulário */
 }
 
+/* Estilo base de cada tab */
 .tab {
-    position: relative;
-    background: #f2f2f2;
+    position: relative;     /* necessário para posicionar o ícone (::before) */
+    background: #f2f2f2;    /* cor de fundo neutra */
     border: none;
+
+    /* padding maior à esquerda para dar espaço ao ícone */
     padding: 10px 20px 10px 44px;
-    border-radius: 30px;
+    border-radius: 30px;    /* formato arredondado tipo “pill” */
+
     font-weight: 800;
     font-size: 15px;
     cursor: pointer;
+
     display: flex;
-    align-items: center;
-    transition: background 0.2s ease;
+    align-items: center;    /* centra o texto verticalmente */
+
+    transition: background 0.2s ease; /* transição suave no hover */
 }
 
+/* Pseudo-elemento usado para o ícone da tab */
 .tab::before {
     content: "";
     position: absolute;
-    left: 18px;
+    left: 18px;             /* posiciona o ícone à esquerda do texto */
+
     width: 20px;
     height: 20px;
+
     background-repeat: no-repeat;
     background-size: contain;
 }
 
-/* ÍCONES */
+/* Ícone específico da tab "Carros" */
 .tab.carros::before {
     background-image: url("imagens/carro-removebg-preview.png");
 }
 
+/* Ícone específico da tab "Carrinhas" */
 .tab.carrinhas::before {
     background-image: url("imagens/carrinha-removebg-preview.png");
 }
 
-/* ESTADOS */
+/* Estado hover da tab */
 .tab:hover {
-    background: #e6e6e6;
+    background: #e6e6e6;    /* ligeiro escurecimento */
 }
 
+/* Tab ativa (selecionada via JavaScript) */
 .tab.active {
-    background: #111;
-    color: white;
+    background: #111;       /* fundo escuro */
+    color: white;           /* texto branco */
 }
 
 
 /* =========================================================
    FORMULÁRIO (BOOKING)
+   Estrutura principal do formulário de pesquisa
    ========================================================= */
+
+/* Grelha principal do formulário */
 .booking-form {
-    display: grid;
-    grid-template-columns: 90fr auto 1.2fr 1.2fr auto;
+    display: grid;          /* CSS Grid para layout complexo */
+    grid-template-columns: 
+        90fr auto 1.2fr 1.2fr auto;
+        /* 
+           Colunas com larguras proporcionais:
+           - localização
+           - botão “local diferente”
+           - data/hora recolha
+           - data/hora devolução
+           - botão de pesquisa
+        */
     grid-template-rows: auto auto;
-    gap: 20px 16px;
-    align-items: end;
+    gap: 20px 16px;         /* espaçamento entre linhas e colunas */
+    align-items: end;       /* alinha os campos pela base */
 }
 
-/* LABELS */
+/* Estilo base das labels */
 .booking-form label {
     font-size: 13px;
     font-weight: 600;
     color: #333;
 }
+
+/* Estado fixo da booking box ao fazer scroll */
 .booking-box.fixed {
-    position: fixed;
-    top: 10px; /* abaixo do header */
+    position: fixed;        /* fixa ao topo do ecrã */
+    top: 10px;              /* ligeiramente abaixo do header */
     left: 50%;
     transform: translateX(-50%);
-    z-index: 50;
+    z-index: 50;            /* garante que fica acima do conteúdo */
     animation: bookingSlide 0.25s ease;
 }
 
-/* Animação suave */
+/* Animação ao ficar fixa */
 @keyframes bookingSlide {
     from {
         opacity: 0;
@@ -357,97 +409,117 @@ body {
 
 /* =========================================================
    LOCALIZAÇÃO
+   Campo de pesquisa de local
    ========================================================= */
+
+/* Posicionamento do campo na grelha */
 .field-location {
     grid-column: 1 / 2;
     grid-row: 1;
 }
 
+/* Wrapper do input para permitir ícones */
 .field-main {
     position: relative;
 }
 
+/* Input principal */
 .field-main input {
     width: 100%;
     height: 48px;
-    padding-left: 48px;
-    padding-right: 44px;
+
+    padding-left: 48px;     /* espaço para a lupa */
+    padding-right: 44px;    /* espaço para o botão X */
+
     border: 1px solid #ccc;
     border-radius: 12px;
     font-size: 15px;
 }
 
-/* LUPA */
+/* Ícone da lupa */
 .field-main::before {
     content: "";
     position: absolute;
     left: 16px;
     top: 50%;
     transform: translateY(-50%);
+
     width: 20px;
     height: 20px;
+
     background-image: url("imagens/lupa.png");
     background-repeat: no-repeat;
     background-size: contain;
 }
 
-/* X (CLEAR) */
+/* Botão X para limpar o campo */
 .field-main .clear {
     position: absolute;
     right: 14px;
     top: 50%;
     transform: translateY(-50%);
+
     width: 20px;
     height: 20px;
     line-height: 18px;
+
     text-align: center;
     font-size: 16px;
     font-weight: 600;
     color: #999;
+
     cursor: pointer;
     border-radius: 50%;
 }
 
+/* Hover do botão limpar */
 .field-main .clear:hover {
     background: #eee;
     color: #333;
 }
 
 /* =========================================================
-   DIFF-RETURN (CINZENTO)
+   LOCAL DE DEVOLUÇÃO DIFERENTE
    ========================================================= */
-.diff-return {
+.localdev {
     grid-column: 2 / 3;
     grid-row: 1;
+
     display: flex;
     align-items: center;
     gap: 8px;
+
     font-size: 14px;
     font-weight: 600;
     color: #777;
     cursor: pointer;
 }
 
-.diff-return .mais {
+/* Símbolo + / - */
+.localdev .mais {
     font-size: 22px;
     font-weight: 400;
     color: #777;
 }
 
 /* =========================================================
-   DATAS
+   DATAS E HORAS
    ========================================================= */
+
+/* Grupo de data + hora */
 .field-date-group {
     grid-row: 2;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
+/* Label ocupa as duas colunas */
 .field-date-group label {
     grid-column: 1 / -1;
     margin-bottom: 8px;
 }
 
+/* Inputs de data e hora */
 .field-date,
 .field-time {
     height: 48px;
@@ -456,36 +528,43 @@ body {
     font-size: 15px;
 }
 
+/* Input de data (lado esquerdo) */
 .field-date {
     border-radius: 12px 0 0 12px;
     border-right: none;
 }
 
+/* Input de hora (lado direito) */
 .field-time {
     border-radius: 0 12px 12px 0;
 }
 
 /* =========================================================
-   BOTÃO
+   BOTÃO DE PESQUISA
    ========================================================= */
 .field-button {
     grid-column: 5 / 6;
     grid-row: 2;
 }
 
+/* Botão “Mostrar veículos” */
 .field-button button {
     height: 48px;
     padding: 0 40px;
+
     background: #ff5f00;
     color: white;
     border: none;
     border-radius: 12px;
+
     font-weight: 900;
     font-size: 16px;
     cursor: pointer;
+
     transition: background 0.2s ease;
 }
 
+/* Hover do botão */
 .field-button button:hover {
     background: #e65400;
 }
@@ -493,11 +572,11 @@ body {
 /* =========================================================
    LINK EMPRESARIAL
    ========================================================= */
-.enterprise-link {
+.empresa-link {
     margin-top: 16px;
     font-size: 14px;
     font-weight: 600;
-    color: #ff5f00;
+    color: black;
     cursor: pointer;
 }
 
@@ -522,49 +601,55 @@ body {
     padding: 30px;
 }
 
-/* Estilos complementares para as colunas (mantendo o visual limpo e responsivo) */
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            gap: 40px;
-        }
+/* Container do footer com Flexbox */
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
 
-        .footer-column {
-            flex: 1;
-            min-width: 220px;
-        }
+    display: flex;
+    flex-wrap: wrap;            /* quebra em linhas em ecrãs pequenos */
+    justify-content: space-around;
+    gap: 40px;
+}
 
-        .footer-column h3 {
-            color: #aaa;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-            font-weight: normal;
-        }
+/* Coluna individual do footer */
+.footer-column {
+    flex: 1;
+    min-width: 220px;
+}
 
-        .footer-column ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+/* Títulos do footer */
+.footer-column h3 {
+    color: #aaa;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
 
-        .footer-column ul li {
-            margin-bottom: 12px;
-        }
+/* Listas do footer */
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
-        .footer-column ul li a {
-            color: white;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
+.footer-column ul li {
+    margin-bottom: 12px;
+}
 
-        .footer-column ul li a:hover {
-            opacity: 0.7;
-        }
+/* Links do footer */
+.footer-column ul li a {
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+/* Hover dos links do footer */
+.footer-column ul li a:hover {
+    opacity: 0.7;
+}
 
         .footer-copyright {
             margin-top: 40px;
@@ -574,80 +659,54 @@ body {
             color: #888;
         }
 
-        @media (max-width: 768px) {
-            .footer-container {
-                flex-direction: column;
-            }
-            .footer-column {
-                text-align: center;
-            }
-        }
-
-/* =========================================================
-   RESPONSIVO
-   ========================================================= */
-@media (max-width: 900px) {
-    .header-right {
-        display: none;
-    }
-
-    .logo {
-        height: 36px;
-    }
-
-    .booking-form {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    .tabs {
-        justify-content: center;
-    }
-
-    .hero {
-        padding-top: 140px;
-    }
-
-
-
+       
     
-}
+
+
 
 /* =========================================================
-   CARDS SIXT (ADIÇÃO)
+   CARDS SIXT
+   Estrutura e layout dos cards informativos da SIXT
    ========================================================= */
+
+/* Container geral da secção de cards */
 .sixt-cards {
-    max-width: 1600px;
-    margin: 80px auto;
-    padding: 0 32px;
+    max-width: 1600px;        /* largura máxima para grandes ecrãs */
+    margin: 80px auto;        /* centrado horizontalmente com espaçamento vertical */
+    padding: 0 32px;          /* margem interna lateral */
 }
 
+/* Card principal (maior) */
 .sixt-card-large {
-    display: flex;
-    background: #111;
+    display: flex;            /* layout em linha (imagem + texto) */
+    background: #111;         /* fundo escuro */
     color: white;
-    border-radius: 24px;
-    overflow: hidden;
+    border-radius: 24px;      /* cantos arredondados */
+    overflow: hidden;         /* impede que o conteúdo ultrapasse os limites */
     margin-bottom: 40px;
 }
 
+/* Área reservada para imagem do card */
 .card-image {
-    flex: 1;
-    background: #444; /* placeholder */
+    flex: 1;                  /* ocupa metade do espaço */
+    background: #444;         /* cor temporária (placeholder) */
     min-height: 220px;
 }
 
+/* Conteúdo textual do card grande */
 .sixt-card-large .card-content {
     flex: 1;
     padding: 40px;
 }
 
+/* Grelha dos cards secundários */
 .sixt-card-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: grid;            /* CSS Grid */
+    grid-template-columns: repeat(2, 1fr); /* duas colunas */
     gap: 32px;
 }
 
+/* Card individual */
 .sixt-card {
     background: #111;
     color: white;
@@ -655,55 +714,54 @@ body {
     overflow: hidden;
 }
 
+/* Título dos cards */
 .sixt-card h4 {
     padding: 20px;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-    .sixt-card-large {
-        flex-direction: column;
-    }
-
-    .sixt-card-grid {
-        grid-template-columns: 1fr;
-    }
-}
 
 /* =========================================================
-   HOVER LINKS MENU (SÓ NO HOVER)
+   LINKS DO MENU LATERAL
+   Animação apenas no hover
    ========================================================= */
-.side-menu a{
-  display: block;
-  padding: 12px 8px;
-  color: #fff;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: 600;
 
-  transition: transform 0.2s ease, color 0.2s ease;
+.side-menu a {
+    display: block;
+    padding: 12px 8px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+
+    transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.side-menu a:hover{
-  transform: translateX(8px);
-  color: #ff5f00;
+/* Animação ao passar o rato */
+.side-menu a:hover {
+    transform: translateX(8px); /* deslocamento lateral */
+    color: #ff5f00;             /* cor institucional */
 }
+
 
 /* =========================================================
    BLOCO LARANJA SIXT
+   Secção de destaque com headline
    ========================================================= */
-.sixt-orange {
+
+.sixt-blocolaranja {
     background: #ff5f00;
     padding: 90px 24px;
     text-align: center;
 }
 
-.sixt-orange-content {
+/* Conteúdo central do bloco */
+.sixt-blocolaranja-content {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.sixt-orange h2 {
+/* Título principal */
+.sixt-blocolaranja h2 {
     font-size: 64px;
     line-height: 1.05;
     font-weight: 900;
@@ -712,31 +770,17 @@ body {
     margin-bottom: 24px;
 }
 
-.sixt-orange p {
+/* Texto secundário */
+.sixt-blocolaranja p {
     font-size: 18px;
     font-weight: 600;
     color: #111;
 }
 
-/* ============================= */
-/* RESPONSIVO */
-/* ============================= */
-@media (max-width: 900px) {
-    .sixt-orange {
-        padding: 60px 20px;
-    }
-
-    .sixt-orange h2 {
-        font-size: 40px;
-    }
-
-    .sixt-orange p {
-        font-size: 16px;
-    }
-}
 
 /* =========================================================
-   BENEFÍCIOS SIXT — ALINHAMENTO REAL
+   BENEFÍCIOS SIXT
+   Lista de vantagens apresentada em grelha
    ========================================================= */
 
 .sixt-benefits {
@@ -744,21 +788,23 @@ body {
     padding: 96px 32px 72px;
 }
 
+/* Container em grid */
 .benefits-container {
     max-width: 1600px;
     margin: 0 auto;
+
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* três colunas */
     gap: 96px;
 }
 
-/* BLOCO */
+/* Bloco individual de benefício */
 .benefit {
     display: flex;
     flex-direction: column;
 }
 
-/* LINHA ÍCONE + TEXTO */
+/* Linha com ícone e label */
 .benefit-header {
     display: flex;
     align-items: center;
@@ -766,21 +812,21 @@ body {
     margin-bottom: 16px;
 }
 
-/* ÍCONE */
+/* Ícone do benefício */
 .benefit-header img {
     width: 36px;
     height: 36px;
     object-fit: contain;
 }
 
-/* LABEL */
+/* Label acima do texto principal */
 .benefit-label {
     font-size: 14px;
     font-weight: 600;
     color: #111;
 }
 
-/* TEXTO PRINCIPAL */
+/* Texto principal do benefício */
 .benefit h3 {
     font-size: 26px;
     line-height: 1.25;
@@ -789,79 +835,19 @@ body {
     letter-spacing: -0.2px;
 }
 
-/* RESPONSIVE */
-@media (max-width: 1100px) {
-    .benefits-container {
-        grid-template-columns: 1fr;
-        gap: 56px;
-    }
-
-    .benefit h3 {
-        font-size: 22px;
-    }
-}
 
 /* =========================================================
-   RESPONSIVE
+   PROMO SECTION
+   Cards promocionais com imagens de fundo
    ========================================================= */
-@media (max-width: 1100px) {
-    .benefits-container {
-        grid-template-columns: 1fr;
-        gap: 56px;
-    }
 
-    .benefit h3 {
-        font-size: 22px;
-    }
-}
-
-
-/* =========================================================
-   RESPONSIVE – TABLET
-   ========================================================= */
-@media (max-width: 1100px) {
-    .benefits-container {
-        grid-template-columns: 1fr;
-        gap: 56px;
-    }
-
-    .benefit h3 {
-        font-size: 22px;
-    }
-}
-
-/* =========================================================
-   RESPONSIVE – MOBILE
-   ========================================================= */
-@media (max-width: 600px) {
-    .sixt-benefits {
-        padding: 64px 24px;
-    }
-
-    .benefit img {
-        width: 36px;
-        height: 36px;
-    }
-
-    .benefit-label {
-        font-size: 13px;
-    }
-
-    .benefit h3 {
-        font-size: 20px;
-    }
-}
-
-/* ===============================
-   PROMO SECTION (SIXT STYLE)
-================================ */
 .promo-section {
     max-width: 1600px;
     margin: 80px auto;
     padding: 0 32px;
 }
 
-/* CARD BASE */
+/* Estilo base de qualquer card promocional */
 .promo-card {
     position: relative;
     border-radius: 20px;
@@ -871,54 +857,54 @@ body {
     color: white;
 }
 
-/* CARD GRANDE */
-/* CARD GRANDE */
+/* Card promocional grande */
 .promo-card-large {
     height: 420px;
     margin-bottom: 32px;
-    background-image: linear-gradient(
-        to right,
-        rgba(0,0,0,0.7),
-        rgba(0,0,0,0.15)
-    ),
-    url("imagens/mercedes card1.webp");
+
+    background-image: 
+        linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.15)),
+        url("imagens/mercedes card1.webp");
 }
 
-/* CARD PEQUENO ESQUERDA */
+/* Grelha dos cards pequenos */
+.promo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+}
+
+/* Card pequeno esquerdo */
 .promo-ev {
-    background-image: linear-gradient(
-        to right,
-        rgba(0,0,0,0.7),
-        rgba(0,0,0,0.15)
-    ),
-    url("imagens/imagemcard2.webp");
+    background-image:
+        linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.15)),
+        url("imagens/imagemcard2.webp");
 }
 
-/* CARD PEQUENO DIREITA */
+/* Card pequeno direito */
 .promo-porsche {
-    background-image: linear-gradient(
-        to right,
-        rgba(0,0,0,0.7),
-        rgba(0,0,0,0.15)
-    ),
-    url("imagens/imagemcard3.webp");
+    background-image:
+        linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.15)),
+        url("imagens/imagemcard3.webp");
 }
 
-/* OVERLAY CONTEÚDO */
+/* Overlay para o conteúdo textual */
 .promo-overlay {
     position: absolute;
     inset: 0;
     padding: 32px;
+
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 }
 
-/* BADGE DESCONTO */
+/* Badge de desconto */
 .promo-badge {
     position: absolute;
     top: 32px;
     left: 32px;
+
     border: 2px solid white;
     padding: 10px 14px;
     text-align: center;
@@ -930,7 +916,12 @@ body {
     font-size: 28px;
 }
 
-/* TEXTOS */
+/* Altura dos cards pequenos */
+.promo-card-small {
+    height: 260px;
+}
+
+/* Tipografia dos cards */
 .promo-card h3 {
     font-size: 28px;
     font-weight: 900;
@@ -949,34 +940,193 @@ body {
     margin-bottom: 14px;
 }
 
-/* BOTÃO */
+/* Botão promocional */
 .promo-btn {
     align-self: flex-start;
     padding: 8px 16px;
+
     border: 2px solid white;
     background: transparent;
     color: white;
+
     font-weight: 700;
     font-size: 13px;
     border-radius: 20px;
     cursor: pointer;
+
     transition: all 0.2s ease;
 }
 
+/* Hover do botão */
 .promo-btn:hover {
     background: white;
     color: black;
 }
 
-/* RESPONSIVO */
-@media (max-width: 900px) {
-    .promo-grid {
-        grid-template-columns: 1fr;
-    }
 
-    .promo-card-large {
-        height: 320px;
-    }
+/* =========================================================
+   MAIS SIXT
+   Secção de cards apenas com imagem
+   ========================================================= */
+
+.more-sixt {
+    background: #eef0f1;
+    padding: 96px 32px 120px;
+}
+
+/* Título da secção */
+.more-sixt-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-bottom: 48px;
+    color: #111;
+}
+
+/* Grelha dos cards */
+.more-sixt-grid {
+    max-width: 1600px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+/* Card base */
+.more-sixt-card {
+    height: 700px;
+    border-radius: 20px;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Imagens dos cards */
+.card-empresas {
+    background-image: url("imagens/maissixtcard1.png");
+}
+
+.card-subscription {
+    background-image: url("imagens/maissixtcard2.png");
+}
+
+.card-ride {
+    background-image: url("imagens/maissixtcard3.png");
 }
 
 
+/* =========================================================
+   BANNERS DE IMAGEM
+   Secções full-width apenas com imagem
+   ========================================================= */
+
+.sixt-image-banner {
+    width: 100%;
+    height: 520px;
+
+    background-image: url("imagens/frasereview.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.sixt-final-image {
+    width: 100%;
+    height: 460px;
+
+    background-image: url("imagens/imagemantesrodape.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* =========================================================
+   SUBMENU NO HEADER
+   ========================================================= */
+
+.has-submenu {
+    position: relative; /* referência para o submenu */
+}
+
+/* Submenu escondido por defeito */
+.submenu {
+    position: absolute;
+    top: 120%;
+    left: 0;
+
+    background: #111;
+    border-radius: 8px;
+    list-style: none;
+    padding: 12px 0;
+    min-width: 180px;
+
+    display: none;
+    z-index: 50;
+}
+
+/* Links do submenu */
+.submenu li a {
+    display: block;
+    padding: 10px 16px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Hover dos links do submenu */
+.submenu li a:hover {
+    background: #222;
+    color: #ff5f00;
+}
+
+/* Ativa o submenu ao passar o rato */
+.has-submenu:hover .submenu {
+    display: block;
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+/* Tablet */
+@media (max-width: 1100px) {
+    .benefits-container,
+    .more-sixt-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Tablet pequeno */
+@media (max-width: 900px) {
+    .barramenu-direita {
+        display: none;
+    }
+
+    .booking-form {
+        grid-template-columns: 1fr;
+    }
+
+    .promo-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .sixt-blocolaranja h2 {
+        font-size: 40px;
+    }
+
+    .benefit h3 {
+        font-size: 20px;
+    }
+
+    .more-sixt-card {
+        height: 360px;
+    }
+}
